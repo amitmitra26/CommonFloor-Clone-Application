@@ -1,0 +1,17 @@
+<h1>You can View Inlisted property</h1>
+<div>
+
+  <table>
+    <% @user.properties.each do |prop| %>
+    <tr>
+      <th>Image</th>
+      <th> <%= prop.title %> </th>
+      <% if current_user.is_admin? %>
+      <th> <%= link_to "Show Deatails", admin_property_path(current_user,prop) %> </th>
+      <% else %>
+      <th> <%= link_to "Show Deatails", user_property_path(current_user,prop) %> </th>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
+</div>

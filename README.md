@@ -1,0 +1,89 @@
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+You need to create a working, demonstrable and usable project using the Rails 5 framework.The project source code can live on Github and be deployed to Heroku (optional).
+You need to use Bootstrap framework for styling the views and pages.
+
+You should maintain our coding convention which is specified in that link https://github.com/kreeti/
+
+
+
+ CommonFloor Clone - Requirement specifications:  
+
+
+A web application for property classifieds needs to be build similar to the https://www.commonfloor.com/ where the real estate properties can be shown for buying, renting and selling.
+
+
+User Access Control:
+
+There will be two categories of users: Admin and regular users (Buyers and Sellers).
+
+
+The admin will be able to access all the features and functionalities from the admin panel like add, edit, update and the categories of the property types (Apartment, Office, Hotel, Plot, Bungalow, House etc.), approve ratings/reviews of the properties etc.
+
+           
+
+Admin features should be under “/admin” path, After admin’s approval ratings / reviews should be public, for this feature you should save reference of admin user in approved_by column.   
+
+
+The regular users will be able to to add, edit, update and delete their own properties along with the other details like Images, Property Type, Location, Price (INR), Area (sqft.), Developer’s or Owner’s Name, Contact Person, info of the property for sell, rental, sold etc will be mark to each of the properties etc. General users will also be able to provide ratings / reviews which can be displayed on the property details.
+
+
+The users or the customers can buy and sell the property by uploading the property details
+
+
+The users will be able to sign up to the site with Name, Email Id, Mobile Number and create password. Once login the users can sign in to the site with Name/E-mail Id and Password.
+
+
+You should not use any Gem like devise for user authentication.  
+
+
+Also the users will be able to sign in through their Social Network account like via Facebook login and Google login.
+
+
+While logging if the users put wrong Email Id or Password, it will show an error validation message.
+
+
+The Homepage will be listed with the lists of properties, Recently Added properties etc. Visitors counts and Property Counts can be shown in the Homepage. Use REDIS to store properties visited by a user.
+
+
+Once click on the specific property, the property details page will be open.
+
+
+The users can add the property in their favorite list and can show interest in the property. Once the property will be marked as interested, the property owner will get a notification mail. The property owner will receive an email notification for every time his property will be visited by the user.
+
+
+Property search filtration will be there where the users can browse and filter the properties by Location, Property Type, Price, Number of rooms etc.
+
+
+Social Network sharing will be there for properties through Facebook, Twitter, Google etc.
+
+
+Additional specifications:
+
+
+Automated Testing, Use Rspec for this
+
+For user sign-up/sign-in, it should not use gems

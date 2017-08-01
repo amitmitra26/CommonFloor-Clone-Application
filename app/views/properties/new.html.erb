@@ -1,0 +1,58 @@
+<h1>You Can Add a new Property Here</h1>
+<p>Post a New Property Advertisement</p>
+<%= form_for ([@user, @user.properties.build]) do |f| %>
+<% if @property.errors.any? %>
+
+<div id="error_explanation">
+  <h2>
+  <%= pluralize(@property.errors.count, "error") %>prohibited the property details to be saved
+</h2>
+<ul>
+<% @property.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<p>
+  <%= f.label :info %>
+  <%= f.select(:category, ['Rent','Sell']) %>
+</p>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</p>
+<p>
+  <%= f.label :category %>
+  <%= f.select(:category, ['Apartment','Hotel','Plot','Bunglow','House','Office']) %>
+</p>
+<p>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </p>
+
+    <p>
+      <%= f.label :price %>
+      <%= f.number_field :price %>
+    </p>
+
+    <p>
+      <%= f.label :area %>
+      <%= f.number_field :area %>
+    </p>
+    <p>
+      <%= f.label :owner %>
+      <%= f.text_field :owner %>
+    </p>
+    <p>
+      <%= f.label :contact %>
+      <%= f.number_field :contact %>
+    </p>
+
+    <%= f.submit %>
+    <% end %>

@@ -1,0 +1,39 @@
+
+<div style="margin-bottom:20px;">
+<p>
+  <strong><%= @property.title %></strong>
+</p>
+
+<p>
+  <%= @property.description %>
+</p>
+
+<p>
+  <%= @property.category %>
+</p>
+
+<p>
+  <%= @property.owner %>
+
+</p>
+
+<p>
+  <%= @property.area %>
+</p>
+
+<p>
+  <%= @property.price %>
+</p>
+
+<p>
+  <%= @property.contact %>
+
+</p>
+<p>
+  <%= @property.description %>
+
+</p>
+</div>
+
+<%= link_to "Modify Add", edit_user_property_path(current_user,@property) %>
+<%= link_to "Delete Add", user_property_path(current_user,@property), method: :delete, data: { confirm: "Are You Sure?"} %>
