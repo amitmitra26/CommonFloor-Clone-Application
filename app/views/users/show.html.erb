@@ -1,0 +1,13 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+<aside>
+  <section class="user_info">
+    <h1>
+
+      <%= @user.name %>
+    </h1>
+  </section>
+  <div>
+    <%= link_to "Post a Free Add", new_user_property_path(current_user), class: "btn btn-lg btn-primary" %>
+</aside>
+</div>
