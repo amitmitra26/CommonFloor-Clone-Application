@@ -12653,3 +12653,443 @@ Processing by PropertiesController#show as HTML
 Completed 200 OK in 102ms (Views: 93.1ms | ActiveRecord: 1.3ms)
 
 
+Started DELETE "/logout" for 127.0.0.1 at 2017-08-02 09:57:45 +0530
+  [1m[35m (3.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AqwJBiVXiWuoUCgsas/wb2K9kWLoS4YpXkY4mQYXUhbEME9otwEKE22DHZx3W0QWQK47+sCmsb5MImDPCy0OTw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 09:57:45 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (29.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 391ms (Views: 388.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:09:27 +0530
+  [1m[35m (111.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (9.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (292.1ms)
+Completed 500 Internal Server Error in 420ms (ActiveRecord: 12.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `property_path' for #<#<Class:0x007f3de46fe608>:0x000000050f10e0>):
+    1: <ul>
+    2:   <% @properties.each do |prop| %>
+    3:   <li><%= link_to prop.title, prop%></li>
+    4:   <% end %>
+    5: </ul>
+  
+app/views/properties/home.html.erb:3:in `block in _app_views_properties_home_html_erb__3157628418120391359_69951901137400'
+app/views/properties/home.html.erb:2:in `_app_views_properties_home_html_erb__3157628418120391359_69951901137400'
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:12:25 +0530
+  [1m[35m (1.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (9.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (306.6ms)
+Completed 500 Internal Server Error in 337ms (ActiveRecord: 41.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `property_path' for #<#<Class:0x000000039ed470>:0x007f1c4082c1f8>):
+    1: <ul>
+    2:   <% @properties.each do |prop| %>
+    3:   <li><%= link_to prop.title, prop%></li>
+    4:   <% end %>
+    5: </ul>
+  
+app/views/properties/home.html.erb:3:in `block in _app_views_properties_home_html_erb___4088842811718456849_69879659037440'
+app/views/properties/home.html.erb:2:in `_app_views_properties_home_html_erb___4088842811718456849_69879659037440'
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:14:56 +0530
+  [1m[35m (9.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (42.5ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (57.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.1ms) [cache miss]
+Completed 200 OK in 1293ms (Views: 1238.0ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:15:07 +0530
+Processing by PropertiesController#show as 
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/properties_controller.rb:21:in `show'
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:16:50 +0530
+Processing by PropertiesController#show as 
+Completed 500 Internal Server Error in 319ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<PropertiesController:0x007ff4f8187050>):
+  
+app/controllers/properties_controller.rb:21:in `show'
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:17:23 +0530
+Processing by PropertiesController#show as 
+  [1m[36mUser Load (14.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 24.6ms)
+
+
+  
+NoMethodError (undefined method `properties' for nil:NilClass):
+  
+app/controllers/properties_controller.rb:24:in `show'
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:18:51 +0530
+Processing by PropertiesController#show as 
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (36.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 156ms (ActiveRecord: 76.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=):
+  
+app/controllers/properties_controller.rb:25:in `show'
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:20:31 +0530
+Processing by PropertiesController#show as 
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (0.7ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 46ms (ActiveRecord: 7.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=):
+  
+app/controllers/properties_controller.rb:25:in `show'
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:21:00 +0530
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (32.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (8.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.5ms) [cache miss]
+Completed 200 OK in 380ms (Views: 353.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:21:02 +0530
+Processing by PropertiesController#show as 
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 4ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=):
+  
+app/controllers/properties_controller.rb:25:in `show'
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:27:01 +0530
+  [1m[35m (141.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (8.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PropertiesController#show as 
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (4.6ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 159ms (ActiveRecord: 33.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=):
+  
+app/controllers/properties_controller.rb:25:in `show'
+Started GET "/property.1" for 127.0.0.1 at 2017-08-02 10:27:08 +0530
+Processing by PropertiesController#show as 
+  [1m[35m (31.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (41.3ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 95ms (ActiveRecord: 74.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=):
+  
+app/controllers/properties_controller.rb:25:in `show'
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:27:59 +0530
+  [1m[35m (2.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (64.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms) [cache miss]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (18.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (2.2ms) [cache miss]
+Completed 200 OK in 884ms (Views: 851.2ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/properties/1" for 127.0.0.1 at 2017-08-02 10:28:04 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (176.3ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m  [["LIMIT", 1]]
+  Rendered properties/show.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 240ms (ActiveRecord: 176.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"properties", :id=>"1", :user_id=>nil}, missing required keys: [:user_id]):
+    35: </p>
+    36: </div>
+    37: 
+    38: <%= link_to "Modify Add", edit_user_property_path(current_user,@property) %>
+    39: <%= link_to "Delete Add", user_property_path(current_user,@property), method: :delete, data: { confirm: "Are You Sure?"} %>
+  
+app/views/properties/show.html.erb:38:in `_app_views_properties_show_html_erb__2289368284247071151_70282476216680'
+Started GET "/properties/1" for 127.0.0.1 at 2017-08-02 10:29:12 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m  [["LIMIT", 1]]
+  Rendered properties/show.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.5ms) [cache miss]
+Completed 200 OK in 194ms (Views: 187.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:29:16 +0530
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 86ms (Views: 82.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/properties/1" for 127.0.0.1 at 2017-08-02 10:29:18 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m  [["LIMIT", 1]]
+  Rendered properties/show.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 98ms (Views: 90.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:29:19 +0530
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_shim.html.erb (0.9ms) [cache miss]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.1ms) [cache miss]
+Completed 200 OK in 90ms (Views: 86.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-02 10:29:22 +0530
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1422.7ms)
+  Rendered layouts/_shim.html.erb (0.7ms) [cache miss]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (7.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (4.2ms) [cache miss]
+Completed 200 OK in 1577ms (Views: 1498.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-08-02 10:29:30 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dxr4rOy4LHWVLJEEBndWoKpNc9EBe0PGI71fRVbEqTHPaR5F7wKj8aWqCBjE65N2TNj3L3GhNFnOqwc8hthT3w==", "session"=>{"email"=>"amit@future.org", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (84.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'amit@future.org' LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 231ms (ActiveRecord: 85.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-02 10:29:30 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 95ms (Views: 85.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/2/properties" for 127.0.0.1 at 2017-08-02 10:29:33 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (52.2ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 2[0m
+  Rendered properties/index.html.erb within layouts/application (463.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (3.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.4ms) [cache miss]
+Completed 200 OK in 590ms (Views: 520.7ms | ActiveRecord: 52.6ms)
+
+
+Started GET "/users/2/properties/1" for 127.0.0.1 at 2017-08-02 10:29:36 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 2 AND `properties`.`id` = 1 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  Rendered properties/show.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_shim.html.erb (1.1ms) [cache miss]
+  Rendered layouts/_header.html.erb (3.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.9ms) [cache miss]
+Completed 200 OK in 127ms (Views: 112.4ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-08-02 10:29:55 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"udxDJULT1hh1bEWUJKKomPW2CXx5stVOJfDEQQS+dqR/QAVL0IVVYLC/cCQ5Nhzh16Wj5FFf4tk3lJwXCYQq/Q=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:29:55 +0530
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 78ms (Views: 75.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:32:18 +0530
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (6.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (5.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 114ms (Views: 104.8ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2017-08-02 10:32:24 +0530
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.1ms) [cache miss]
+  Rendered users/_form.html.erb (51.2ms) [cache miss]
+  Rendered users/new.html.erb within layouts/application (104.0ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 207ms (Views: 186.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-02 10:32:28 +0530
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (2.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 87ms (Views: 85.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-08-02 10:32:36 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kO4GBKh7Pd2JPOE1vtZeCy2Vxa2PCKTAvJyl43P62UgoneDtq8GyWbm6eCl8SpvdywBBU//S019Riv2ao+Yjpg==", "session"=>{"email"=>"amit@future.org", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'amit@future.org' LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 134ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-08-02 10:32:36 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:32:44 +0530
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_shim.html.erb (0.8ms) [cache miss]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (2.1ms) [cache miss]
+Completed 200 OK in 85ms (Views: 82.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/help" for 127.0.0.1 at 2017-08-02 10:32:45 +0530
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (8.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.5ms) [cache miss]
+Completed 200 OK in 111ms (Views: 100.1ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-08-02 10:32:49 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"szPfvcj5S3SW24krPNYprBQMXtu6tisB6x67jdB0CBd1r5nTWq/IDFMIvJshQp3VNh/0Q5JbHJb5euPb3U5UTg=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-02 10:32:49 +0530
+Processing by PropertiesController#home as HTML
+  Rendering properties/home.html.erb within layouts/application
+  [1m[36mProperty Load (1.8ms)[0m  [1m[34mSELECT `properties`.* FROM `properties`[0m
+  Rendered properties/home.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 113ms (Views: 108.9ms | ActiveRecord: 2.3ms)
+
+
