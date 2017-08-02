@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   post '/signup',  to: 'users#create'
   #get '/admin/profile', to: 'admin#show'
-  #get '/property', to: 'properties#show'
+  #get '/view/:id', to: 'properties#view'
   resources :properties
+  resources :properties do
+    get 'view'
+  end
   resources :users, :admins do
     resources :properties
   end
