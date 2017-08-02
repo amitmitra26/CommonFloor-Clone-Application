@@ -1,8 +1,14 @@
+<h1>Hi! Admin</h1>
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
 <ul class="users">
 
-    <%= render @users %>
-
+<% @users.each do |u| %>
+<li><%= link_to u.name, admin_user_path(current_user, u) %>
+  <% unless u.is_admin %>
+  <%= link_to "delete", u, method: :delete,
+                              data: { confirm: "You sure?" } %></li>
+  <% end %>
+  <% end %>
 </ul>

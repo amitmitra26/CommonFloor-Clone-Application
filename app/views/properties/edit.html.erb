@@ -1,0 +1,82 @@
+<% provide(:title, 'Modify Add') %>
+<% provide(:button_text, 'Save changes') %>
+
+<h1>Update your Add</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for (@property) do |f| %>
+
+    <p>
+      <%= f.label :status %>
+      <% if @property.info == "Sell" %>
+      <%= f.select(:status, ['Available','Sold']) %>
+      <% else %>
+      <%= f.select(:status, ['Available','Rented']) %>
+      <% end %>
+    </p>
+    <% if @property.errors.any? %>
+
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@property.errors.count, "error") %>prohibited the property details to be saved
+      </h2>
+      <ul>
+        <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <p>
+      <%= f.label :info %>
+      <%= f.select(:info, ['Rent','Sell']) %>
+    </p>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+    <p> <%= f.label :bedrooms %>
+        <%= f.select(:bedrooms, ['1','2','3','4','5','6+']) %>
+    </p>
+    <p> <%= f.label :bathrooms %>
+        <%= f.select(:bathrooms, ['1','2','3','4+']) %>
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </p>
+    <p>
+      <%= f.label :category %>
+      <%= f.select(:category, ['Apartment','Hotel','Plot','Bunglow','House','Office']) %>
+    </p>
+    <p>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </p>
+
+    <p>
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </p>
+
+    <p>
+      <%= f.label :area %>
+      <%= f.text_field :area %>
+    </p>
+    <p>
+      <%= f.label :owner %>
+      <%= f.text_field :owner %>
+    </p>
+    <p>
+      <%= f.label :contact %>
+      <%= f.text_field :contact %>
+    </p>
+
+    <%= f.submit %>
+
+    <% end %>
+
+
+  </div>
+</div>
