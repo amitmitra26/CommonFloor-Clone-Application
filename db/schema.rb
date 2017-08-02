@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731094750) do
+ActiveRecord::Schema.define(version: 20170802034252) do
 
   create_table "properties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.text "description"
     t.string "category"
     t.string "location"
-    t.integer "price"
-    t.integer "area"
+    t.string "price"
+    t.string "area"
     t.string "owner"
-    t.integer "contact"
+    t.string "contact"
     t.string "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "status", default: "Available"
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
