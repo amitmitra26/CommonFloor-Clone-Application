@@ -5,10 +5,10 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :category
       t.string :location
-      t.integer :price
-      t.integer :area
+      t.string :price
+      t.string :area
       t.string :owner
-      t.integer :contact
+      t.string :contact
       t.string :info
 
       t.timestamps

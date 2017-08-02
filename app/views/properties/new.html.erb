@@ -17,7 +17,7 @@
 
 <p>
   <%= f.label :info %>
-  <%= f.select(:category, ['Rent','Sell']) %>
+  <%= f.select(:info, ['Rent','Sell']) %>
 </p>
 <p>
   <%= f.label :title %>
@@ -38,12 +38,12 @@
 
     <p>
       <%= f.label :price %>
-      <%= f.number_field :price %>
+      <%= f.text_field :price %>
     </p>
 
     <p>
       <%= f.label :area %>
-      <%= f.number_field :area %>
+      <%= f.text_field :area %>
     </p>
     <p>
       <%= f.label :owner %>
@@ -51,7 +51,7 @@
     </p>
     <p>
       <%= f.label :contact %>
-      <%= f.number_field :contact %>
+      <%= f.text_field :contact %>
     </p>
 
     <%= f.submit %>

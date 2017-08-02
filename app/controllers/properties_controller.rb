@@ -1,10 +1,11 @@
 class PropertiesController < ApplicationController
 
   def index
-    #@properties = Property.all
     @user = current_user
   end
-
+  def home
+    @properties = Property.all
+  end
   def new
     @user = current_user
     @property = Property.new
@@ -17,8 +18,11 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    if current_user
     @user = User.find(current_user.id)
     @property = @user.properties.find(params[:id])
-
+    else
+    @property = Property.find(params[:id])
+    end
   end
 end

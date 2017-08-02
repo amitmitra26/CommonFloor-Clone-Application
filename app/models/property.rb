@@ -8,5 +8,5 @@ class Property < ApplicationRecord
  validates :owner, presence: true, length: { in: 3..100 }
  validates :contact, presence: true, length: { is: 10 }
   validates :location, presence: true, length: { in: 3..50 }
-
+  
 end
