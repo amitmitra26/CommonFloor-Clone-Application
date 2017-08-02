@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :users, :admins do
     resources :properties
   end
-
+  resources :admins do
+    resources :users
+  end
   #get '/admin', to: 'admin#index'
   #resources :admins
   resources :account_activations, only: [:edit]

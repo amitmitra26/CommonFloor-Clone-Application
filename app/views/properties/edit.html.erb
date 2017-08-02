@@ -36,6 +36,12 @@
       <%= f.label :title %>
       <%= f.text_field :title %>
     </p>
+    <p> <%= f.label :bedrooms %>
+        <%= f.select(:bedrooms, ['1','2','3','4','5','6+']) %>
+    </p>
+    <p> <%= f.label :bathrooms %>
+        <%= f.select(:bathrooms, ['1','2','3','4+']) %>
+    </p>
     <p>
       <%= f.label :description %>
       <%= f.text_area :description %>
