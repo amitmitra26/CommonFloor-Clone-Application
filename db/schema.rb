@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802182229) do
+ActiveRecord::Schema.define(version: 20170803191129) do
 
   create_table "properties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20170802182229) do
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "comment"
+    t.string "approved_by"
+    t.bigint "property_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_reviews_on_property_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -47,4 +59,6 @@ ActiveRecord::Schema.define(version: 20170802182229) do
   end
 
   add_foreign_key "properties", "users"
+  add_foreign_key "reviews", "properties"
+  add_foreign_key "reviews", "users"
 end
