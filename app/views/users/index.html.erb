@@ -5,7 +5,7 @@
 <ul class="users">
 
 <% @users.each do |u| %>
-<li><%= link_to u.name, admin_user_path(current_user, u) %>
+<li><%= link_to u.name, admin_user_path(current_user,u) %>
   <% unless u.is_admin %>
   <%= link_to "delete", u, method: :delete,
                               data: { confirm: "You sure?" } %></li>

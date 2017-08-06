@@ -1,0 +1,17 @@
+<h1>Reviews</h1>
+<table>
+<% @reviews.each do |rev| %>
+<tr>
+<td>
+  <%= link_to rev.title, review_approval_path(rev) %>
+</td>
+<td>
+  <%= link_to rev.property_id, admin_property_path(current_user,rev.property_id) %>
+</td>
+<td>
+  <%= link_to rev.user_id, admin_user_path(current_user, rev.user_id) %>
+</td>
+</tr>
+<% end %>
+
+</table>
