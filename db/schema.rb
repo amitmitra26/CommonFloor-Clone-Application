@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 20170803191129) do
     t.string "title"
     t.text "comment"
     t.string "approved_by"
-    t.bigint "property_id"
+    t.string "status", default: "Unapproved"
     t.bigint "user_id"
+    t.bigint "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_reviews_on_property_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -60,5 +60,4 @@ ActiveRecord::Schema.define(version: 20170803191129) do
 
   add_foreign_key "properties", "users"
   add_foreign_key "reviews", "properties"
-  add_foreign_key "reviews", "users"
 end

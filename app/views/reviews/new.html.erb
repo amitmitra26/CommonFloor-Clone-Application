@@ -1,0 +1,19 @@
+<h1>Give a Review for the Property</h1>
+
+<%= form_for ([@property, @property.reviews.build]) do |f| %>
+
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+</p>
+
+
+
+<%= f.submit %>
+
+<% end %>

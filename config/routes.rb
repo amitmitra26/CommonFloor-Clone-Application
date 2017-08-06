@@ -16,11 +16,18 @@ Rails.application.routes.draw do
   end
   resources :users, :admins do
     resources :properties
+
+  end
+  resources :reviews
+  resources :properties do
+    resources :reviews
   end
   resources :admins do
     resources :users
   end
-
+  resources :reviews do
+    get 'approval'
+  end
   resources :account_activations, only: [:edit]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

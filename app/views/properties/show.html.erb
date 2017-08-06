@@ -4,4 +4,5 @@
 <%= link_to "Modify Add", edit_user_property_path(current_user,@property) %>
 <%= link_to "Delete Add", user_property_path(current_user,@property), method: :delete, data: { confirm: "Are You Sure?"} %>
 <% end %>
+
 <%= render 'form' %>

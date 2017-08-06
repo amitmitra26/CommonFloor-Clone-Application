@@ -1,0 +1,27 @@
+<h1>Review Details</h1>
+
+
+<p>
+<%= @review.title %>
+</p>
+
+<p>
+<%= @review.comment %>
+</p>
+
+<p>User Id:
+  <%= link_to @review.user_id, admin_user_path(current_user, @review.user_id) %>
+</p>
+<p>Property Id:
+  <%= link_to @review.property_id, admin_property_path(current_user, @review.property_id) %>
+</p>
+
+
+<p>Approve Review:
+<%= form_for (@review) do |f| %>
+<%= f.radio_button(:status, "Reject") %>
+<%= f.radio_button(:status, "Approve") %>
+<%= f.submit %>
+<% end %>
+
+</p>
