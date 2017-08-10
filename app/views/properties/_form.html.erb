@@ -30,8 +30,20 @@
   <%= @property.contact %>
 
 </p>
+
+</div>
+<% @property.reviews.each do |r| %>
+<% if r.status == "Approve" %>
 <p>
-  <%= @property.description %>
+  <%= r.title %>
+</p>
+<p>
+  <%= r.comment %>
 
 </p>
-</div>
+<p> Reviewed By:
+  <% u = r.user %>
+  <%= u.name %>
+</p>
+<% end %>
+<% end %>

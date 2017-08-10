@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   end
 
 
+
   def new
 
     @property = Property.find(params[:property_id])
@@ -15,10 +16,10 @@ class ReviewsController < ApplicationController
 
     @property = Property.find(params[:property_id])
     @review = @property.reviews.create(params.require(:review).permit(:title,:comment))
-
+    @review.user_id = current_user.id
     if @review.save
-      @review.user_id = current_user.id
-      @review.save
+
+
       flash[:success] = "Review Submitted"
      redirect_to property_review_path(@property,@review)
    else
@@ -45,6 +46,12 @@ end
     else
       render 'approval'
     end
+  end
+
+  def destroy
+    Review.find(params[:id]).destroy
+    flash[:success] = "Review Removed"
+    redirect_to user_userReview_path(current_user)
   end
 
 end

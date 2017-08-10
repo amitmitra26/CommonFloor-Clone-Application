@@ -60,6 +60,10 @@ before_action :admin_user,     only: [:index, :destroy]
       redirect_to users_url
     end
 
+    def userReview
+      @user = current_user
+      @reviews = @user.reviews
+    end
   private
 
     def user_params

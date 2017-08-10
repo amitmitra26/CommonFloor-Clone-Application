@@ -17,7 +17,11 @@
 
 <p>
   <%= f.label :info %>
-  <%= f.select(:info, ['Rent','Sell']) %>
+  <%= f.select(:info, ['For Rent','For Sale']) %>
+</p>
+<p>
+  <%= f.label :owner_type %>
+  <%= f.select(:owner_type, ['I need a Property','I have a Property']) %>
 </p>
 <p>
   <%= f.label :title %>

@@ -1,0 +1,13 @@
+<% @reviews.each do |r| %>
+<p>
+  <%= r.title %>
+</p>
+<p>
+  <%= r.comment %>
+</p>
+<p>
+  <% @property = r.property %>
+  <%= render 'properties/form' %>
+</p>
+<p> <%= link_to "Remove Comment", user_review_path(current_user,r), method: :delete, data: { confirm: "Are You Sure?"} %> </p>
+<% end %>
