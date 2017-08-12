@@ -8,30 +8,21 @@
 
     <p>
       <%= f.label :status %>
-      <% if @property.info == "Sell" %>
-      <%= f.select(:status, ['Available','Sold']) %>
+      <% if @property.owner_type =="I need a Property" %>
+        <%= f.select(:status, ['Needed','Got Property','Not needed Anymore']) %>
       <% else %>
-      <%= f.select(:status, ['Available','Rented']) %>
+        <% if @property.info == "For Sale" %>
+          <%= f.select(:status, ['Available','Sold']) %>
+        <% else %>
+          <%= f.select(:status, ['Available','Rented']) %>
+        <% end %>
       <% end %>
     </p>
-    <% if @property.errors.any? %>
 
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@property.errors.count, "error") %>prohibited the property details to be saved
-      </h2>
-      <ul>
-        <% @property.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
+    <%= render 'shared/error_messages', obj: @property %>
+    
 
-    <p>
-      <%= f.label :info %>
-      <%= f.select(:info, ['Rent','Sell']) %>
-    </p>
+
     <p>
       <%= f.label :title %>
       <%= f.text_field :title %>

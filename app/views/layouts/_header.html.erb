@@ -8,7 +8,7 @@
         <% if logged_in? %>
         <% if current_user.is_admin? %>
           <li><%= link_to "Users", admin_users_path(current_user) %></li>
-          <li><%= link_to "Properties", properties_path %></li>
+          <li><%= link_to "Properties", admin_AllProperties_path %></li>
           <li><%= link_to "Reviews", reviews_path %></li>
         <% end %>
           <li class="dropdown">
@@ -26,7 +26,9 @@
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
 
               <li><%= link_to "Active Ads", user_properties_path(current_user) %></li>
+
               <% end %>
+              <li><%= link_to "Your Reviews", userReview_reviews_path %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: :delete %>

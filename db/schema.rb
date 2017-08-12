@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170803191129) do
     t.string "owner"
     t.string "contact"
     t.string "info"
+    t.string "owner_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -32,15 +33,16 @@ ActiveRecord::Schema.define(version: 20170803191129) do
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
+    t.integer "rating"
     t.text "comment"
     t.string "approved_by"
-    t.string "status", default: "Unapproved"
-    t.bigint "user_id"
+    t.string "status", default: "Pending"
     t.bigint "property_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_reviews_on_property_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -60,4 +62,5 @@ ActiveRecord::Schema.define(version: 20170803191129) do
 
   add_foreign_key "properties", "users"
   add_foreign_key "reviews", "properties"
+  add_foreign_key "reviews", "users"
 end

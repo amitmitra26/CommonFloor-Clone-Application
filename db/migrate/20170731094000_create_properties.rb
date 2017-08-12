@@ -10,7 +10,7 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.string :owner
       t.string :contact
       t.string :info
-
+      t.string :owner_type
       t.timestamps
     end
   end

@@ -1,0 +1,11 @@
+
+<h1>Properties added by Users who Currently having Properties</h1>
+<h3>Properties for Sale:</h3>
+<%= render 'showPropertiesAdmin', records: @properties_to_sale %>
+<h3>Properties for Rent:</h3>
+<%= render 'showPropertiesAdmin', records: @properties_to_rent %>
+<h1>Properties added by Users who are looking for Properties</h1>
+<h3>Properties for Sale:</h3>
+<%= render 'showPropertiesAdmin', records: @properties_needed_for_sale %>
+<h3>Properties for Rent:</h3>
+<%= render 'showPropertiesAdmin', records: @properties_needed_for_rent %>

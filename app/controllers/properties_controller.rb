@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
-
+skip_before_action :require_login, only: [:home, :view]
+before_action :admin_login, only: [:adminUser]
   def index
     @user = current_user
   end
@@ -13,7 +14,10 @@ class PropertiesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @property = @user.properties.create(params.require(:property).permit(:title, :description, :category, :location, :price, :area, :owner, :contact, :info, :bedrooms, :bathrooms))
+    @property = @user.properties.create(params.require(:property).permit(:title, :description, :category, :location, :price, :area, :owner, :contact, :info, :bedrooms, :bathrooms, :owner_type))
+    if @property.owner_type == "I need a Property"
+      @property.status = "Needed"
+    end
     if @property.save
       flash[:success] = "Property Submitted"
     redirect_to @property
@@ -26,13 +30,10 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:property_id])
   end
 
-  def show
-    @user = User.find(current_user.id)
-    @property = @user.properties.find(params[:id])
-  end
+
 
   def edit
-    #@user = User.find(current_user.id)
+    
     @property = Property.find(params[:id])
   end
 
@@ -52,4 +53,15 @@ class PropertiesController < ApplicationController
     redirect_to current_user
   end
 
+  def adminUser
+    @properties_to_sale = Property.where( info: 'For Sale', owner_type: 'I have a Property' )
+    @properties_to_rent = Property.where( info: 'For Rent', owner_type: 'I have a Property' )
+    @properties_needed_for_sale = Property.where( info: 'For Sale', owner_type: 'I need a Property' )
+    @properties_needed_for_rent = Property.where( info: 'For Rent', owner_type: 'I need a Property' )
+
+  end
+  def show
+    @user = User.find(current_user.id)
+    @property = @user.properties.find(params[:id])
+  end
 end

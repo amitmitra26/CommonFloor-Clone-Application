@@ -2,7 +2,7 @@
 
 
 <p>
-<%= @review.title %>
+<%= @review.rating %>
 </p>
 
 <p>
@@ -18,7 +18,7 @@
 
 
 <p>Approve Review:
-<%= form_for (@review) do |f| %>
+<%= form_for (@review), url: review_approve_path(@review), method: 'PATCH' do |f| %>
 <%= f.radio_button(:status, "Reject") %>
 <%= f.radio_button(:status, "Approve") %>
 <%= f.submit %>

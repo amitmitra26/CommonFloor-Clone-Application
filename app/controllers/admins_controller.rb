@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-
+before_action :admin_login
     def index
       @users = User.all
     end

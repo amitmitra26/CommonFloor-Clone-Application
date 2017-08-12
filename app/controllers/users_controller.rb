@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 before_action :logged_in_user, only: [:edit, :update, :destroy]
 before_action :correct_user,   only: [:edit, :update]
-before_action :admin_user,     only: [:index, :destroy]
-
+before_action :already_loggedin, only: [:new, :create]
+before_action :admin_login, only: [:index, :destroy]
+skip_before_action :require_login, only: [:new, :create]
   def index
      @users = User.all
   end
@@ -27,17 +28,6 @@ before_action :admin_user,     only: [:index, :destroy]
     end
   end
 
-#  def admin_user
-#    if logged_in?
-#      if !current_user.admin?
-#        flash[:danger] = "You are not Admin"
-#        redirect_to root_url
-#      end
-#    else
-#      flash[:danger] = "Please Log in"
-#      redirect_to login_path
-#    end
-#  end
 
   def edit
     @user = User.find(params[:id])
@@ -60,6 +50,7 @@ before_action :admin_user,     only: [:index, :destroy]
       redirect_to users_url
     end
 
+    
   private
 
     def user_params
@@ -79,7 +70,5 @@ before_action :admin_user,     only: [:index, :destroy]
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
-    def admin_user
-      redirect_to(root_url) unless current_user.is_admin?
-    end
+
 end

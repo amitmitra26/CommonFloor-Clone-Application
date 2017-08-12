@@ -1,10 +1,12 @@
 <h1>Give a Review for the Property</h1>
 
 <%= form_for ([@property, @property.reviews.build]) do |f| %>
+<%= render 'shared/error_messages', obj: @review %>
+
 
 <p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label :rating %>
+  <%= f.number_field(:rating, in: 0..5) %>
 </p>
 
 <p>

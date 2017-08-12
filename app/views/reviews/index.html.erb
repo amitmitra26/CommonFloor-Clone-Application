@@ -2,8 +2,11 @@
 <table>
 <% @reviews.each do |rev| %>
 <tr>
+  <td>
+    <%= rev.rating %>
+  </td>
 <td>
-  <%= link_to rev.title, review_approval_path(rev) %>
+  <%= link_to rev.comment, review_approval_path(rev) %>
 </td>
 <td>
   <%= link_to rev.property_id, admin_property_path(current_user,rev.property_id) %>
