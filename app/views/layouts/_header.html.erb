@@ -28,7 +28,7 @@
               <li><%= link_to "Active Ads", user_properties_path(current_user) %></li>
 
               <% end %>
-              <li><%= link_to "Your Reviews", user_userReview_path(current_user) %></li>
+              <li><%= link_to "Your Reviews", userReview_reviews_path %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: :delete %>

@@ -1,19 +1,8 @@
 <h1>You Can Add a new Property Here</h1>
 <p>Post a New Property Advertisement</p>
 <%= form_for ([@user, @user.properties.build]) do |f| %>
-<% if @property.errors.any? %>
 
-<div id="error_explanation">
-  <h2>
-  <%= pluralize(@property.errors.count, "error") %>prohibited the property details to be saved
-</h2>
-<ul>
-<% @property.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
-</div>
-<% end %>
+<%= render 'shared/error_messages', obj: @property %>
 
 <p>
   <%= f.label :info %>

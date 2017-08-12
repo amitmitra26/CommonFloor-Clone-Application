@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20170803191129) do
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
+    t.integer "rating"
     t.text "comment"
     t.string "approved_by"
-    t.string "status", default: "Unapproved"
+    t.string "status", default: "Pending"
     t.bigint "property_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

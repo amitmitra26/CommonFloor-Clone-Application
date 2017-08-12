@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
-
-
+skip_before_action :require_login, only: [:new, :create]
+before_action :already_loggedin, only: [:new, :create]
     def new
+
     end
 
     def create

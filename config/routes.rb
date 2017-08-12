@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   post '/signup',  to: 'users#create'
   get '/admin/AllProperties', to: 'properties#adminUser'
-  resources :properties
+
   resources :properties do
     get 'view'
   end
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :properties, :reviews
 
   end
-  resources :reviews
+
   resources :properties do
     resources :reviews
   end
@@ -27,10 +27,10 @@ Rails.application.routes.draw do
   end
   resources :reviews do
     get 'approval'
+    patch 'approve'
+    get 'userReview', on: :collection
   end
-  resources :users do
-    get 'userReview'
-  end
+  resources :reviews, :properties
   resources :account_activations, only: [:edit]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

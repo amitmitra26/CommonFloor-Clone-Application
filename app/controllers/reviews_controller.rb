@@ -1,9 +1,14 @@
 class ReviewsController < ApplicationController
+skip_before_action :require_login, only: [:show]
+before_action :admin_login, only: [:index, :approval]
   def index
     @reviews = Review.all
   end
 
+  def userReview
 
+    @reviews = current_user.reviews
+  end
 
   def new
 
@@ -15,7 +20,7 @@ class ReviewsController < ApplicationController
   def create
 
     @property = Property.find(params[:property_id])
-    @review = @property.reviews.create(params.require(:review).permit(:title,:comment))
+    @review = @property.reviews.create(params.require(:review).permit(:rating,:comment))
     @review.user_id = current_user.id
     if @review.save
 
@@ -36,15 +41,32 @@ end
   end
 
 
-  def update
-    @review = Review.find(params[:id])
+  def approve
+    @review = Review.find(params[:review_id])
     if @review.update_attributes(params.require(:review).permit(:status))
       @review.approved_by = current_user.id
       @review.save
-      flash[:success] = "Review Status Updated"
+      flash[:success] = "Review is #{@review.status}"
       redirect_to reviews_path
     else
       render 'approval'
+    end
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    if @review.update_attributes(params.require(:review).permit(:rating, :comment))
+      @review.status = 'Pending'
+      @review.approved_by = ''
+      @review.save
+      flash[:success] = "Review Status Updated, It will be Public after Admin's Approval"
+      redirect_to userReview_reviews_path
+    else
+      render 'edit'
     end
   end
 

@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
-
+skip_before_action :require_login, only: [:home, :view]
+before_action :admin_login, only: [:adminUser]
   def index
     @user = current_user
   end
@@ -32,7 +33,7 @@ class PropertiesController < ApplicationController
 
 
   def edit
-    #@user = User.find(current_user.id)
+    
     @property = Property.find(params[:id])
   end
 

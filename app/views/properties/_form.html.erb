@@ -9,6 +9,7 @@
   <%= @property.description %>
 </p>
 
+<p>Overall Rating: <%= @property.reviews.where(status: "Approve").average(:rating) %></p>
 <p>
   <%= @property.category %>
 </p>
@@ -35,7 +36,7 @@
 <% @property.reviews.each do |r| %>
 <% if r.status == "Approve" %>
 <p>
-  <%= r.title %>
+  <%= r.rating %>
 </p>
 <p>
   <%= r.comment %>
