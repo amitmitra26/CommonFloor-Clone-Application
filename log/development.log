@@ -46634,3 +46634,631 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 159ms (Views: 124.5ms | ActiveRecord: 24.1ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (20.5ms)[0m  [1m[34mSELECT GET_LOCK(4836756501199084770, 0)[0m
+  [1m[35m (23.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPictureToUsers (20170813183144)
+  [1m[35m (1591.2ms)[0m  [1m[35mALTER TABLE `users` ADD `picture` varchar(255)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170813183144')[0m
+  [1m[35m (42.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (23.3ms)[0m  [1m[34mSELECT RELEASE_LOCK(4836756501199084770)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (38.5ms)[0m  [1m[35mSHOW CREATE TABLE `properties`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'properties'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW CREATE TABLE `reviews`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'reviews'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK(4836756501199084770, 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPictureToUsers (20170813183144)
+  [1m[35m (1215.1ms)[0m  [1m[35mALTER TABLE `users` DROP `picture`[0m
+  [1m[35mSQL (41.3ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20170813183144'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK(4836756501199084770)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `properties`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'properties'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `reviews`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'reviews'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (40.8ms)[0m  [1m[34mSELECT GET_LOCK(4836756501199084770, 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPictureToProperties (20170813183321)
+  [1m[35m (1098.5ms)[0m  [1m[35mALTER TABLE `properties` ADD `picture` varchar(255)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20170813183321')[0m
+  [1m[35m (46.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK(4836756501199084770)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW CREATE TABLE `properties`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'properties'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW CREATE TABLE `reviews`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'reviews'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:15:54 +0530
+  [1m[35m (14.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (107.0ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (262.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (20.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.erb (44.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 2825ms (Views: 2544.3ms | ActiveRecord: 214.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-14 00:16:01 +0530
+Processing by SessionsController#new as HTML
+  [1m[35m (36.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (20.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (724.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 859ms (Views: 781.4ms | ActiveRecord: 56.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-08-14 00:16:10 +0530
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L+dfTxBs/HMPHIETbsvBxn03XC+enA0yv1ebP1ehSnRkBPPYFpxDQdm0ZcICD4/s6cuhyUBB1RouD+Ekl20Ngw==", "session"=>{"email"=>"amit@future.org", "name"=>"", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[36mUser Load (68.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'amit@future.org' LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = '' LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 280ms (ActiveRecord: 91.7ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2017-08-14 00:16:10 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 59ms (Views: 49.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/4/properties/new" for 127.0.0.1 at 2017-08-14 00:16:19 +0530
+Processing by PropertiesController#new as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendering properties/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms) [cache miss]
+  Rendered properties/new.html.erb within layouts/application (205.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 271ms (Views: 267.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/4/properties" for 127.0.0.1 at 2017-08-14 00:17:38 +0530
+Processing by PropertiesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5X8A379grse/7GiHM4IGXQgmjF4SqOucCf6iHd7HIE80QYHr3idxFtnjwLoJKN6ZPlknrxQ2ih/+y7wwHbeqbw==", "property"=>{"info"=>"For Rent", "owner_type"=>"I have a Property", "title"=>"5bhk Flat picture", "rooms"=>"4BHK+", "bedrooms"=>"5", "bathrooms"=>"2", "description"=>"picture", "category"=>"Apartment", "picture"=>#<ActionDispatch::Http::UploadedFile:0x007fbcbc36e018 @tempfile=#<Tempfile:/tmp/RackMultipart20170814-22815-1hbxq3f.jpg>, @original_filename="godrej genesis.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"property[picture]\"; filename=\"godrej genesis.jpg\"\r\nContent-Type: image/jpeg\r\n">, "city"=>"Kolkata", "location"=>"tollygunge", "price"=>"40000", "area"=>"600", "owner"=>"Amit Mitra", "contact"=>"8906243814"}, "commit"=>"Create Property", "user_id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[35m (45.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (161.6ms)[0m  [1m[32mINSERT INTO `properties` (`title`, `description`, `category`, `location`, `price`, `area`, `owner`, `contact`, `info`, `owner_type`, `city`, `rooms`, `created_at`, `updated_at`, `user_id`, `bedrooms`, `bathrooms`, `picture`) VALUES ('5bhk Flat picture', 'picture', 'Apartment', 'tollygunge', 40000, '600', 'Amit Mitra', '8906243814', 'For Rent', 'I have a Property', 'Kolkata', '4BHK+', '2017-08-13 18:47:38', '2017-08-13 18:47:38', 4, '5', '2', 'godrej_genesis.jpg')[0m
+  [1m[35m (128.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/properties/7
+Completed 302 Found in 1150ms (ActiveRecord: 336.3ms)
+
+
+Started GET "/properties/7" for 127.0.0.1 at 2017-08-14 00:17:39 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (48.5ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 7 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[35m (78.8ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 7 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 7[0m
+  Rendered properties/_form.html.erb (127.9ms) [cache miss]
+  Rendered properties/show.html.erb within layouts/application (144.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 260ms (Views: 96.0ms | ActiveRecord: 148.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:18:11 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms) [cache miss]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 82ms (Views: 78.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/properties/7/view" for 127.0.0.1 at 2017-08-14 00:18:20 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"7"}
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 7 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 7 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 7[0m
+  Rendered properties/_form.html.erb (4.7ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered properties/view.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 95ms (Views: 62.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/properties/7/reviews/new" for 127.0.0.1 at 2017-08-14 00:18:31 +0530
+Processing by ReviewsController#new as HTML
+  Parameters: {"property_id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 7 LIMIT 1[0m
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms) [cache miss]
+  Rendered reviews/new.html.erb within layouts/application (74.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 298ms (Views: 125.3ms | ActiveRecord: 101.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:19:23 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_shim.html.erb (0.8ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 92ms (Views: 89.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:20:24 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 91ms (Views: 88.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/4/properties" for 127.0.0.1 at 2017-08-14 00:22:56 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4[0m
+  Rendered properties/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_shim.html.erb (7.5ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 110ms (Views: 68.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/4/properties/7" for 127.0.0.1 at 2017-08-14 00:22:59 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 7 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[35m (56.0ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 7 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 7[0m
+  Rendered properties/_form.html.erb (63.6ms) [cache miss]
+  Rendered properties/show.html.erb within layouts/application (66.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 131ms (Views: 68.3ms | ActiveRecord: 57.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:23:09 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_shim.html.erb (1.3ms) [cache miss]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (6.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.8ms) [cache miss]
+Completed 200 OK in 145ms (Views: 141.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/properties/7/view" for 127.0.0.1 at 2017-08-14 00:23:12 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"7"}
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 7 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 7 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 7[0m
+  Rendered properties/_form.html.erb (9.3ms) [cache miss]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered properties/view.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 101ms (Views: 97.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/properties/7/view" for 127.0.0.1 at 2017-08-14 00:24:21 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"7"}
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 7 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 7 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 7[0m
+  Rendered properties/_form.html.erb (8.1ms) [cache miss]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered properties/view.html.erb within layouts/application (35.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 86ms (Views: 81.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:24:28 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 57ms (Views: 55.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/properties/6/view" for 127.0.0.1 at 2017-08-14 00:24:33 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"6"}
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 6 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 6 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 6[0m
+  Rendered properties/_form.html.erb (6.8ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered properties/view.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 77ms (Views: 71.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/properties/6/view" for 127.0.0.1 at 2017-08-14 00:24:38 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"6"}
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 6 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 6 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 6[0m
+  Rendered properties/_form.html.erb (5.2ms) [cache miss]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered properties/view.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 69ms (Views: 63.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/4/properties" for 127.0.0.1 at 2017-08-14 00:24:41 +0530
+Processing by PropertiesController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4[0m
+  Rendered properties/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms) [cache miss]
+  Rendered layouts/_header.html.erb (4.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 63ms (Views: 58.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/4" for 127.0.0.1 at 2017-08-14 00:24:49 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.3ms) [cache miss]
+Completed 200 OK in 102ms (Views: 98.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:24:51 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&info=For+Rent&city=&location=&max=&min=&commit=Search" for 127.0.0.1 at 2017-08-14 00:24:59 +0530
+Processing by StaticPagesController#search as HTML
+  Parameters: {"utf8"=>"✓", "info"=>"For Rent", "city"=>"", "location"=>"", "max"=>"", "min"=>"", "commit"=>"Search"}
+  Rendering static_pages/search.html.erb within layouts/application
+  [1m[36mProperty Load (20.1ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE ((info = 'For Rent' OR city = '' OR location = '' OR category = NULL OR rooms = NULL) OR (price BETWEEN '' AND ''))[0m
+  Rendered static_pages/search.html.erb within layouts/application (22.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 112ms (Views: 48.3ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/properties/3" for 127.0.0.1 at 2017-08-14 00:25:02 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 3 LIMIT 1[0m
+Completed 404 Not Found in 7ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=3 [WHERE `properties`.`user_id` = ?]):
+  
+app/controllers/properties_controller.rb:63:in `show'
+Started GET "/search?utf8=%E2%9C%93&info=For+Rent&city=&location=&max=&min=&commit=Search" for 127.0.0.1 at 2017-08-14 00:25:29 +0530
+Processing by StaticPagesController#search as HTML
+  Parameters: {"utf8"=>"✓", "info"=>"For Rent", "city"=>"", "location"=>"", "max"=>"", "min"=>"", "commit"=>"Search"}
+  Rendering static_pages/search.html.erb within layouts/application
+  [1m[36mProperty Load (0.7ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE ((info = 'For Rent' OR city = '' OR location = '' OR category = NULL OR rooms = NULL) OR (price BETWEEN '' AND ''))[0m
+  Rendered static_pages/search.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.1ms) [cache miss]
+Completed 200 OK in 78ms (Views: 75.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/properties/7" for 127.0.0.1 at 2017-08-14 00:25:35 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 7 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 7 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 7[0m
+  Rendered properties/_form.html.erb (7.5ms) [cache miss]
+  Rendered properties/show.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 82ms (Views: 73.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/properties/6" for 127.0.0.1 at 2017-08-14 00:25:40 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 6 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 6 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 6[0m
+  Rendered properties/_form.html.erb (5.5ms) [cache miss]
+  Rendered properties/show.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 65ms (Views: 59.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/properties/6" for 127.0.0.1 at 2017-08-14 00:25:44 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 6 LIMIT 1[0m
+  Rendering properties/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 6 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 6[0m
+  Rendered properties/_form.html.erb (6.6ms) [cache miss]
+  Rendered properties/show.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 77ms (Views: 70.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/properties/1" for 127.0.0.1 at 2017-08-14 00:25:46 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 6ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=1 [WHERE `properties`.`user_id` = ?]):
+  
+app/controllers/properties_controller.rb:63:in `show'
+Started GET "/properties/1" for 127.0.0.1 at 2017-08-14 00:27:53 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 7ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=1 [WHERE `properties`.`user_id` = ?]):
+  
+app/controllers/properties_controller.rb:63:in `show'
+Started GET "/properties/1" for 127.0.0.1 at 2017-08-14 00:27:57 +0530
+Processing by PropertiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`user_id` = 4 AND `properties`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 5ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Property with 'id'=1 [WHERE `properties`.`user_id` = ?]):
+  
+app/controllers/properties_controller.rb:63:in `show'
+Started GET "/search?utf8=%E2%9C%93&info=For+Rent&city=&location=&max=&min=&commit=Search" for 127.0.0.1 at 2017-08-14 00:28:01 +0530
+Processing by StaticPagesController#search as HTML
+  Parameters: {"utf8"=>"✓", "info"=>"For Rent", "city"=>"", "location"=>"", "max"=>"", "min"=>"", "commit"=>"Search"}
+  Rendering static_pages/search.html.erb within layouts/application
+  [1m[36mProperty Load (0.7ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE ((info = 'For Rent' OR city = '' OR location = '' OR category = NULL OR rooms = NULL) OR (price BETWEEN '' AND ''))[0m
+  Rendered static_pages/search.html.erb within layouts/application (3.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (4.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 85ms (Views: 80.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-14 00:28:04 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE (created_at > (curdate() - 1))[0m
+  Rendered static_pages/home.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 75ms (Views: 73.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&info=For+Rent&city=&location=&max=&min=&commit=Search" for 127.0.0.1 at 2017-08-14 00:28:09 +0530
+Processing by StaticPagesController#search as HTML
+  Parameters: {"utf8"=>"✓", "info"=>"For Rent", "city"=>"", "location"=>"", "max"=>"", "min"=>"", "commit"=>"Search"}
+  Rendering static_pages/search.html.erb within layouts/application
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE ((info = 'For Rent' OR city = '' OR location = '' OR category = NULL OR rooms = NULL) OR (price BETWEEN '' AND ''))[0m
+  Rendered static_pages/search.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms) [cache miss]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  Rendered layouts/_header.html.erb (3.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 54ms (Views: 51.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/properties/1/view" for 127.0.0.1 at 2017-08-14 00:28:11 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"1"}
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 1 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 1[0m
+  Rendered properties/_form.html.erb (7.7ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered properties/view.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  Rendered layouts/_header.html.erb (3.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 97ms (Views: 91.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/properties/7/view" for 127.0.0.1 at 2017-08-14 00:28:17 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"7"}
+  [1m[36mProperty Load (0.6ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 7 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 7 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 7[0m
+  Rendered properties/_form.html.erb (6.3ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered properties/view.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 68ms (Views: 63.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/properties/1/view" for 127.0.0.1 at 2017-08-14 00:28:25 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"1"}
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 1 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 1 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 1[0m
+  Rendered properties/_form.html.erb (4.5ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered properties/view.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.8ms) [cache miss]
+Completed 200 OK in 67ms (Views: 62.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/properties/3/view" for 127.0.0.1 at 2017-08-14 00:28:28 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"3"}
+  [1m[36mProperty Load (0.4ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 3 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 3 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 3[0m
+  Rendered properties/_form.html.erb (4.7ms) [cache miss]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered properties/view.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms) [cache miss]
+  Rendered layouts/_header.html.erb (2.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 67ms (Views: 63.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/properties/5/view" for 127.0.0.1 at 2017-08-14 00:28:31 +0530
+Processing by PropertiesController#view as HTML
+  Parameters: {"property_id"=>"5"}
+  [1m[36mProperty Load (0.5ms)[0m  [1m[34mSELECT  `properties`.* FROM `properties` WHERE `properties`.`id` = 5 LIMIT 1[0m
+  Rendering properties/view.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG(`reviews`.`rating`) FROM `reviews` WHERE `reviews`.`property_id` = 5 AND `reviews`.`status` = 'Approve'[0m
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT `reviews`.* FROM `reviews` WHERE `reviews`.`property_id` = 5[0m
+  Rendered properties/_form.html.erb (5.3ms) [cache miss]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered properties/view.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms) [cache miss]
+  Rendered layouts/_header.html.erb (3.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 88ms (Views: 83.5ms | ActiveRecord: 2.3ms)
+
+

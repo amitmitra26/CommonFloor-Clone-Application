@@ -2,6 +2,8 @@
 <p>
   <strong><%= @property.title %></strong>
 </p>
+
+   <%= image_tag @property.picture.url if @property.picture? %>
 <p><%= @property.bedrooms %></p>
 <p><%= @property.bathrooms %></p>
 
