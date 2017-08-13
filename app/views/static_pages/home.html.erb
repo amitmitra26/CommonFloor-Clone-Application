@@ -36,3 +36,17 @@
   <%= submit_tag("Search") %>
 <% end %>
 </div>
+
+
+<div>
+  <p>Recently Added Properties</p>
+  <div>
+    <ul>
+      <% @properties_recent.each do |prop| %>
+      <li><%= link_to prop.title, property_view_path(prop) %></li>
+      <% end %>
+    </ul>
+
+  </div>
+
+</div>
