@@ -2,6 +2,7 @@ class Property < ApplicationRecord
   validate :property_owner_type
   belongs_to :user
   has_many :reviews, dependent: :destroy
+  mount_uploader :picture, PictureUploader
   validates :title, presence: true, length: { in: 5..255 }
   validates :description, presence: true, length: { in: 5..1024 }
   validates :owner, presence: true, length: { in: 3..100 }
@@ -9,6 +10,7 @@ class Property < ApplicationRecord
   validates :location, presence: true, length: { in: 3..50 }
   validates :bedrooms, presence: true
   validates :bathrooms, presence: true
+    validate  :picture_size
   def property_owner_type
     if owner_type == 'I have a Property'
       unless price.present?
@@ -19,4 +21,12 @@ class Property < ApplicationRecord
       end
     end
   end
+private
+  # Validates the size of an uploaded picture.
+ def picture_size
+   if picture.size > 5.megabytes
+     errors.add(:picture, "should be less than 5MB")
+   end
+ end
+
 end
