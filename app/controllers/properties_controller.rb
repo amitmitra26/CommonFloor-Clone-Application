@@ -4,9 +4,7 @@ before_action :admin_login, only: [:adminUser]
   def index
     @user = current_user
   end
-  def home
-    @properties = Property.all
-  end
+
   def new
     @user = current_user
     @property = Property.new
@@ -14,7 +12,7 @@ before_action :admin_login, only: [:adminUser]
 
   def create
     @user = User.find(params[:user_id])
-    @property = @user.properties.create(params.require(:property).permit(:title, :description, :category, :location, :price, :area, :owner, :contact, :info, :bedrooms, :bathrooms, :owner_type))
+    @property = @user.properties.create(params.require(:property).permit(:title, :description, :category, :location, :price, :area, :owner, :contact, :info, :bedrooms, :bathrooms, :owner_type, :rooms, :city))
     if @property.owner_type == "I need a Property"
       @property.status = "Needed"
     end
@@ -30,16 +28,16 @@ before_action :admin_login, only: [:adminUser]
     @property = Property.find(params[:property_id])
   end
 
-
+  
 
   def edit
-    
+
     @property = Property.find(params[:id])
   end
 
   def update
     @property = Property.find(params[:id])
-    if @property.update_attributes(params.require(:property).permit(:title, :description, :category, :location, :price, :area, :owner, :contact, :info, :status, :bedrooms, :bathrooms))
+    if @property.update_attributes(params.require(:property).permit(:title, :description, :category, :location, :price, :area, :owner, :contact, :info, :status, :bedrooms, :bathrooms, :rooms, :city))
       flash[:success] = "Property Added"
       redirect_to user_property_path(current_user)
     else

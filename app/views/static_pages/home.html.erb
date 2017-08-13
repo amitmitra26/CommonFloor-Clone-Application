@@ -1,11 +1,38 @@
-<div class="center jumbotron">
-  <h1>Welcome to Common Floor</h1>
+<div>
 
-  <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+ <%= form_tag('/search', method: 'GET') do %>
 
-  
+  <%= label_tag(:info, "Buy")  %>
+  <%= radio_button_tag(:info, 'For Sale') %>
+  <%= label_tag(:info, 'Rent') %>
+    <%= radio_button_tag(:info, 'For Rent') %>
+
+    <%= text_field_tag(:city) %>
+
+    <%= text_field_tag(:location) %>
+
+    <%= select_tag(:category, ['Apartment','Hotel','Plot','Bunglow','House','Office']) %>
+
+    <p>
+      <%= label_tag(:rooms, '1RK') %>
+      <%= radio_button_tag(:rooms, '1RK') %>
+      <%= label_tag(:rooms, '1BHK') %>
+        <%= radio_button_tag(:rooms, '1BHK') %>
+      <%= label_tag(:rooms, '2BHK') %>
+        <%= radio_button_tag(:rooms, '2BHK') %>
+      <%= label_tag(:rooms, '3BHK') %>
+        <%= radio_button_tag(:rooms, '3BHK') %>
+      <%= label_tag(:rooms, '4BHK') %>
+        <%= radio_button_tag(:rooms, '4BHK') %>
+      <%= label_tag(:rooms, '4BHK+') %>
+        <%= radio_button_tag(:rooms, '4BHK+') %>
+    </p>
+
+    <%= label_tag(:max, "Maximum Price") %>
+    <%= number_field_tag(:max) %>
+
+    <%= label_tag(:min, "Minimum Price") %>
+    <%= number_field_tag(:min) %>
+  <%= submit_tag("Search") %>
+<% end %>
 </div>

@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20170803191129) do
     t.text "description"
     t.string "category"
     t.string "location"
-    t.string "price"
+    t.integer "price"
     t.string "area"
     t.string "owner"
     t.string "contact"
     t.string "info"
     t.string "owner_type"
+    t.string "city"
+    t.string "rooms"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

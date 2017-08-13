@@ -20,12 +20,26 @@
     </p>
 
     <%= render 'shared/error_messages', obj: @property %>
-    
+
 
 
     <p>
       <%= f.label :title %>
       <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label(:rooms, '1RK') %>
+      <%= f.radio_button(:rooms, '1RK') %>
+      <%= f.label(:rooms, '1BHK') %>
+        <%= f.radio_button(:rooms, '1BHK') %>
+      <%= f.label(:rooms, '2BHK') %>
+        <%= f.radio_button(:rooms, '2BHK') %>
+      <%= f.label(:rooms, '3BHK') %>
+        <%= f.radio_button(:rooms, '3BHK') %>
+      <%= f.label(:rooms, '4BHK') %>
+        <%= f.radio_button(:rooms, '4BHK') %>
+      <%= f.label(:rooms, '4BHK+') %>
+        <%= f.radio_button(:rooms, '4BHK+') %>
     </p>
     <p> <%= f.label :bedrooms %>
         <%= f.select(:bedrooms, ['1','2','3','4','5','6+']) %>
@@ -41,6 +55,11 @@
       <%= f.label :category %>
       <%= f.select(:category, ['Apartment','Hotel','Plot','Bunglow','House','Office']) %>
     </p>
+    <p>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    </p>
+
     <p>
       <%= f.label :location %>
       <%= f.text_field :location %>
