@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'properties#home'
+  root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   post '/signup',  to: 'users#create'
   get '/admin/AllProperties', to: 'properties#adminUser'
 
+
+  get '/search', to: 'static_pages#search'
+
   resources :properties do
     get 'view'
+
   end
   resources :users, :admins do
     resources :properties, :reviews

@@ -1,0 +1,15 @@
+
+Adds given by Property owners
+<div>
+  <ul>
+    <% @search_properties_for.each do |pr| %>
+    <li><%= link_to pr.title, pr %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+
+
+<%= link_to "Back to Home", root_path %>
