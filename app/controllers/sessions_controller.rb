@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-skip_before_action :require_login, only: [:new, :create]
+skip_before_action :require_login, only: [:new, :create, :facebook]
 before_action :already_loggedin, only: [:new, :create]
+
     def new
 
     end
@@ -25,7 +26,18 @@ before_action :already_loggedin, only: [:new, :create]
         render 'new'
       end
     end
+    def facebook
+         auth = request.env["omniauth.auth"]
+   		session[:omniauth] = auth.except('extra')
+   		user = User.sign_in_from_omniauth(auth)
+   		session[:user_id] = user.id
+       if log_in(user)
 
+   redirect_to user_path(user), notice: "SIGNED IN"
+   else
+     redirect_to root_url
+   end
+       end
 
     def destroy
      log_out

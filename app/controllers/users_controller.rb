@@ -4,6 +4,8 @@ before_action :correct_user,   only: [:edit, :update]
 before_action :already_loggedin, only: [:new, :create]
 before_action :admin_login, only: [:index, :destroy]
 skip_before_action :require_login, only: [:new, :create]
+
+before_action :set_auth
   def index
      @users = User.all
   end
@@ -50,7 +52,7 @@ skip_before_action :require_login, only: [:new, :create]
       redirect_to users_url
     end
 
-    
+
   private
 
     def user_params
@@ -70,5 +72,7 @@ skip_before_action :require_login, only: [:new, :create]
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
-
+    def set_auth
+       @auth = session[:omniauth] if session[:omniauth]
+     end
 end

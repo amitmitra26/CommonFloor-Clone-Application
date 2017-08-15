@@ -18,7 +18,7 @@
   <tbody>
     <% records.each do |p| %>
     <tr>
-      <td><%= link_to p.title, property_view_path(p) %></td>
+      <td><%= link_to p.title, property_path(p) %></td>
       <td><%= link_to p.user.name, p.user %></td>
       <td><%= p.status %></td>
       <td><%= link_to "Modify Add", edit_property_path(p) %></td>

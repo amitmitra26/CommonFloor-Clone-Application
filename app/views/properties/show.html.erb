@@ -1,8 +1,12 @@
 
 
-<% if current_user %>
+<% if current_user && (current_user == @property.user || current_user.is_admin) %>
 <%= link_to "Modify Add", edit_user_property_path(current_user,@property) %>
 <%= link_to "Delete Add", user_property_path(current_user,@property), method: :delete, data: { confirm: "Are You Sure?"} %>
 <% end %>
 
 <%= render 'form' %>
+
+<% if current_user && current_user != @property.user %>
+<%= link_to "Review Add", new_property_review_path(@property) %>
+<% end %>
