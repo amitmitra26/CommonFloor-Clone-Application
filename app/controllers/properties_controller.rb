@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
-skip_before_action :require_login, only: [:home, :view]
+skip_before_action :require_login, only: [:home, :show]
 before_action :admin_login, only: [:adminUser]
+before_action :correct_property, only: [:edit, :delete, :update]
   def index
     @user = current_user
   end
@@ -33,6 +34,8 @@ before_action :admin_login, only: [:adminUser]
   def edit
 
     @property = Property.find(params[:id])
+
+
   end
 
   def update
@@ -59,7 +62,21 @@ before_action :admin_login, only: [:adminUser]
 
   end
   def show
-    @user = User.find(current_user.id)
-    @property = @user.properties.find(params[:id])
+    #@user = User.find(current_user.id)
+    @property = Property.find(params[:id])
   end
+
+   private
+
+   def correct_property
+     @property = Property.find(params[:id])
+
+       if !(current_user.is_admin)
+         if current_user != @property.user
+       flash[:danger] = "You are Not Authorize to this Property Operations"
+       redirect_to root_path
+     end
+   end
+   end
+
 end

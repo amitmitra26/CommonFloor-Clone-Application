@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 skip_before_action :require_login, only: [:show]
 before_action :admin_login, only: [:index, :approval]
+before_action :correct_review, only: [:edit, :delete, :update, :approve, :approval]
   def index
     @reviews = Review.all
   end
@@ -74,6 +75,18 @@ end
     Review.find(params[:id]).destroy
     flash[:success] = "Review Removed"
     redirect_to user_userReview_path(current_user)
+  end
+
+private
+  def correct_review
+    @review = Review.find(params[:review_id])
+
+      if !(current_user.is_admin)
+        if current_user != @review.user
+      flash[:danger] = "You are Not Authorize to this Review Operations"
+      redirect_to root_path
+    end
+  end
   end
 
 end

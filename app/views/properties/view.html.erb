@@ -1,4 +1,0 @@
-<%= render 'form' %>
-<% if current_user && current_user != @property.user %>
-<%= link_to "Review Add", new_property_review_path(@property) %>
-<% end %>

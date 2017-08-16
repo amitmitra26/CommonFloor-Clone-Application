@@ -3,7 +3,7 @@ Adds given by Property owners
 <div>
   <ul>
     <% @search_properties_for.each do |pr| %>
-    <li><%= link_to pr.title, property_view_path(pr) %></li>
+    <li><%= link_to pr.title, property_path(pr) %></li>
     <% end %>
   </ul>
 </div>
