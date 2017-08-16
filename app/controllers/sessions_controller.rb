@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-skip_before_action :require_login, only: [:new, :create, :facebook]
+skip_before_action :require_login, only: [:new, :create, :omni]
 before_action :already_loggedin, only: [:new, :create]
 
     def new
@@ -26,7 +26,7 @@ before_action :already_loggedin, only: [:new, :create]
         render 'new'
       end
     end
-    def facebook
+    def omni
          auth = request.env["omniauth.auth"]
    		session[:omniauth] = auth.except('extra')
    		user = User.sign_in_from_omniauth(auth)
