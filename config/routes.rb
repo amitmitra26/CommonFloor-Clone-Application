@@ -18,21 +18,22 @@ Rails.application.routes.draw do
 
   resources :users, :admins do
     resources :properties, :reviews
-
   end
 
+
   resources :properties do
-    resources :reviews
+    resources :reviews, :favourites
   end
   resources :admins do
     resources :users
+    get :reviews, to: 'reviews#index'
   end
   resources :reviews do
     get 'approval'
     patch 'approve'
     get 'userReview', on: :collection
   end
-  resources :reviews, :properties
+  resources :reviews, :properties, :favourites
   resources :account_activations, only: [:edit]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

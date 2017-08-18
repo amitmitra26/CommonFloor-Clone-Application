@@ -2,6 +2,7 @@ class Property < ApplicationRecord
   validate :property_owner_type
   belongs_to :user
   has_many :reviews, dependent: :destroy
+  has_many :favourites, dependent: :destroy
   mount_uploader :picture, PictureUploader
   validates :title, presence: true, length: { in: 5..255 }
   validates :description, presence: true, length: { in: 5..1024 }

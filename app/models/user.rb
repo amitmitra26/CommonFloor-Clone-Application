@@ -13,10 +13,10 @@ before_create :create_activation_digest
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :mobile, presence: true, length: { minimum: 10 }, uniqueness: true
-
+  validates :uid, presence: true, uniqueness: true
   has_many :properties, dependent: :destroy
   has_many :reviews, dependent: :destroy
-
+  has_many :favourites, dependent: :destroy
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
