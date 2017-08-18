@@ -1,24 +1,15 @@
 class UserMailer < ApplicationMailer
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.account_activation.subject
-  #
-  def account_activation(user)
-   @user = user
-   mail to: user.email, subject: "Account activation"
- end
-
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.password_reset.subject
-  #
-  def password_reset
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
-  end
+  default from: 'notifications@commonfloorclone.com'
+  def property_visited(property,user)
+    @property = property
+    @user = user
+    @url  = 'http://example.com/login'
+    mail(to: property.user.email, subject: 'Your Property is visited' )
+end
+def property_interested(property,user)
+  @property = property
+  @user = user
+  @url  = 'http://example.com/login'
+  mail(to: property.user.email, subject: 'Your Property is Marked Interested' )
+end
 end

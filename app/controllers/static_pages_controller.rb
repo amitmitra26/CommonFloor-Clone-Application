@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   skip_before_action :require_login
 
   def home
-  #  @properties_recent = Property.where("created_at > (curdate() - 1)")
+  
       @properties_recent = Property.order(created_at: :desc).limit(5)
 
   end

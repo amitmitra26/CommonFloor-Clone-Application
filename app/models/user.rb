@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token
-#before_save   :downcase_email
-before_create :create_activation_digest
+ # attr_accessor :remember_token, :activation_token
+
+
 
   before_save :email_downcase
 
@@ -27,15 +27,7 @@ before_create :create_activation_digest
       return false if digest.nil?
       BCrypt::Password.new(digest).is_password?(token)
     end
-    # Activates an account.
-  def activate
-  UserMailer.account_activation(self).deliver_now
-  end
-
-  # Sends activation email.
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
+    
 
   def self.sign_in_from_omniauth(auth)
   		User.find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
@@ -55,10 +47,5 @@ before_create :create_activation_digest
    self.email = email.downcase
  end
  end
-  private
-
-  def create_activation_digest
-#      self.activation_token  = User.new_token
-#      self.activation_digest = User.digest(activation_token)
-    end
+  
 end

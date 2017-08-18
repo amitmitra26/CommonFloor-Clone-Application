@@ -9,13 +9,17 @@
 
 <% if current_user && current_user != @property.user %>
 <%= link_to "Review Add", new_property_review_path(@property) %>
+<% if @favourite %>
+<% msg = "Update your property Interest in favourite list" %>
+<% else %>
+<% msg = "Add this property to your Favourite List" %>
+<% end %>
+<%= form_for (@favourite) || ([@property, @property.favourites.build]) do |f| %>
 
-<%= form_for ([@property, @property.favourites.build]) do |f| %>
-
-<%= f.label :interested "Mark as Interested" %>
+<%= f.label :interested,  "Mark as Interested" %>
 <%= f.check_box(:interested) %>
 
-<%= f.submit "Add this property to your Favourite List" %>
+<%= f.submit msg %>
 
 <% end %>
 <% end %>
