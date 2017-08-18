@@ -57,7 +57,7 @@ before_action :set_auth
 
     def user_params
       params.require(:user).permit(:name, :email, :mobile, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :uid)
     end
 
     def logged_in_user

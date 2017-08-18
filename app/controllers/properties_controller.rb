@@ -64,6 +64,10 @@ before_action :correct_property, only: [:edit, :delete, :update]
   def show
     #@user = User.find(current_user.id)
     @property = Property.find(params[:id])
+    @favourite = Favourite.find_by(user_id: current_user, property_id: @property)
+    unless current_user == @property.user
+       UserMailer.property_visited(@property,current_user).deliver_now
+    end
   end
 
    private
