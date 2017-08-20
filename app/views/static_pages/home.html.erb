@@ -1,52 +1,85 @@
-<div>
 
- <%= form_tag('/search', method: 'GET') do %>
+<div class="row">
+  <%= image_tag( "Slide.png" , class: "banner", style: "height:350px;") %><!-- Banner image at Tab and Desktop View -->
 
-  <%= label_tag(:info, "Buy")  %>
-  <%= radio_button_tag(:info, 'For Sale') %>
-  <%= label_tag(:info, 'Rent') %>
-    <%= radio_button_tag(:info, 'For Rent') %>
+</div>
 
-    <%= text_field_tag(:city) %>
 
-    <%= text_field_tag(:location) %>
+<div class="row">
 
-    <%= select_tag(:category, ['Apartment','Hotel','Plot','Bunglow','House','Office']) %>
+ <%= form_tag('/search', method: 'GET', class: "text-center", style: "border:2px solid #8d33ff; background-color:#fff588;") do %>
+ <div class="row">
 
-    <p>
-      <%= label_tag(:rooms, '1RK') %>
-      <%= radio_button_tag(:rooms, '1RK') %>
-      <%= label_tag(:rooms, '1BHK') %>
-        <%= radio_button_tag(:rooms, '1BHK') %>
-      <%= label_tag(:rooms, '2BHK') %>
-        <%= radio_button_tag(:rooms, '2BHK') %>
-      <%= label_tag(:rooms, '3BHK') %>
-        <%= radio_button_tag(:rooms, '3BHK') %>
-      <%= label_tag(:rooms, '4BHK') %>
-        <%= radio_button_tag(:rooms, '4BHK') %>
-      <%= label_tag(:rooms, '4BHK+') %>
-        <%= radio_button_tag(:rooms, '4BHK+') %>
-    </p>
+<p style="font-size:26px; font-family:Courier; font-weight:bold;">Search Property:</p>
 
-    <%= label_tag(:max, "Maximum Price") %>
-    <%= number_field_tag(:max) %>
+<div  class="col-sm-3">
+  <span class="col-sm-6"> <%= label_tag(:info, "Buy")  %>
+   <%= radio_button_tag(:info, 'For Sale') %></span>
+  <span class="col-sm-6"> <%= label_tag(:info, 'Rent') %>
+     <%= radio_button_tag(:info, 'For Rent') %></span>
+</div >
+<div class="col-sm-6"> <span class="col-sm-6"><%= label_tag(:city, 'City') %>
+        <%= text_field_tag(:city) %></span>
+  <span class="col-sm-6">  <%= label_tag(:location, 'Location') %>
+        <%= text_field_tag(:location) %></span></div>
+<div  class="col-sm-3"> <%= label_tag(:category) %>   <%= select_tag(:category, options_for_select(['Apartment','Hotel','Plot','Bunglow','House','Office'])) %>
+</div>
+</div>
+    <div  class="row gap-bottom">
 
-    <%= label_tag(:min, "Minimum Price") %>
-    <%= number_field_tag(:min) %>
+      <div class="col-sm-2">  <%= radio_button_tag(:rooms, 'Studio') %><%= label_tag(:rooms, 'Studio') %></div>
+
+        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '1BHK') %>  <%= label_tag(:rooms, '1BHK') %></div>
+
+        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '2BHK') %>  <%= label_tag(:rooms, '2BHK') %></div>
+
+        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '3BHK') %><%= label_tag(:rooms, '3BHK') %></div>
+
+        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '4BHK') %>  <%= label_tag(:rooms, '4BHK') %></div>
+
+        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '4BHK+') %>  <%= label_tag(:rooms, '4BHK+') %></div>
+    </div>
+<div class="row">
+  <span class="col-sm-6">  <%= label_tag(:max, "Maximum Price") %>
+  <%= number_field_tag(:max) %></span>
+
+  <span class="col-sm-6">  <%= label_tag(:min, "Minimum Price") %>
+  <%= number_field_tag(:min) %></span>
+</div>
+
   <%= submit_tag("Search") %>
 <% end %>
 </div>
 
 
-<div>
-  <p>Recently Added Properties</p>
-  <div>
-    <ul>
+<div class="row">
+  <h1 class="text-center">Recently Added Properties</h1>
+
+    <div>
       <% @properties_recent.each do |prop| %>
-      <li><%= link_to prop.title, property_path(prop) %></li>
+      <span class="thumbnail col-sm-2" style="margin-right:10px;"><% if prop.picture? %>
+         <%= link_to image_tag(prop.picture, style: "display:inline;"), prop %>
+         <% else %>
+         <%= link_to image_tag("no-thumb.jpg", style: "display:inline; height:105px; width:200px;"), prop %>
+         <% end %>
+      <p><%= prop.title %></p>
+</span>
+
       <% end %>
-    </ul>
+    </div>
 
+
+
+</div>
+
+
+<div class="row footer-gap" >
+  <div class="col-md-6">
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/ByiDAXZr_f8?autoplay=1">
+    </iframe>
   </div>
-
+  <div class="col-md-6" style="">
+    <p class="col-sm-6" style="color:brown; font-size:28px; ">Property Count:</p>
+    <div class="col-sm-6" style=" font-size:64px;width: 250px; height: 250px; background: red; border-radius: 50%; "><p style="position:relative; left:90px;top:65px;"><%= Property.count %></p></div>
+  </div>
 </div>

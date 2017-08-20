@@ -7,7 +7,7 @@ before_action :already_loggedin, only: [:new, :create]
     end
 
     def create
-      user = User.find_by(email: params[:session][:email].downcase)
+      user = User.find_by(email: params[:session][:email].downcase, provider: NIL)
       user_name = User.find_by(uid: params[:session][:uid])
       if (user && user.authenticate(params[:session][:password])) || (user_name && user_name.authenticate(params[:session][:password]))
         if user_name

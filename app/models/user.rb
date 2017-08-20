@@ -9,7 +9,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+                    uniqueness: { case_sensitive: false, scope: :provider }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :mobile, presence: true, length: { minimum: 10 }, uniqueness: true
@@ -27,7 +27,7 @@ class User < ApplicationRecord
       return false if digest.nil?
       BCrypt::Password.new(digest).is_password?(token)
     end
-    
+
 
   def self.sign_in_from_omniauth(auth)
   		User.find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
@@ -38,6 +38,7 @@ class User < ApplicationRecord
      u.provider = auth['provider']
      u.uid = auth['uid']
      u.name = auth['info']['name']
+     u.email = auth['info']['email']
       u.save(validate: false)
       return u
   end
@@ -47,5 +48,5 @@ class User < ApplicationRecord
    self.email = email.downcase
  end
  end
-  
+
 end

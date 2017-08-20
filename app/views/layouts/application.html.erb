@@ -6,6 +6,13 @@
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="mystyle2.css" rel="stylesheet">
+  
+
+
     <%= render 'layouts/shim' %>
   </head>
   <body>
@@ -16,7 +23,7 @@
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
-      
+
     </div>
 
   </body>
