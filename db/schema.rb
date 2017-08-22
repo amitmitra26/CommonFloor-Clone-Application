@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170819072856) do
     t.string "owner_type"
     t.string "city"
     t.string "rooms"
+    t.integer "viewers", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

@@ -49,7 +49,9 @@ before_action :correct_property, only: [:edit, :delete, :update]
   end
 
   def destroy
-    Property.find(params[:id]).destroy
+    property=Property.find(params[:id])
+    visited_property_delete(property)
+    property.destroy
     flash[:success] = "Property Deleted"
     redirect_to current_user
   end
@@ -64,10 +66,21 @@ before_action :correct_property, only: [:edit, :delete, :update]
   def show
     #@user = User.find(current_user.id)
     @property = Property.find(params[:id])
-    @favourite = Favourite.find_by(user_id: current_user, property_id: @property)
     unless current_user == @property.user
-       UserMailer.property_visited(@property,current_user).deliver_now
+    @property.viewers = @property.viewers + 1
+    @property.save
+  end
+    if logged_in?
+
+      unless (current_user == @property.user)
+        property_visited(@property)
+         UserMailer.property_visited(@property,current_user).deliver_now
+      end
     end
+
+    @favourite = Favourite.find_by(user_id: current_user, property_id: @property)
+
+
   end
 
    private

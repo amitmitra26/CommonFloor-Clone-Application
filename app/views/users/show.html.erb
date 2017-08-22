@@ -9,7 +9,18 @@ Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], w
    <% end %>
 
     <p> <%= @user.name %></p>
+
     </h1>
+
+
+    <ul>
+      <% pnm = Property.find(@properties_visited) %>
+      <% pnm.each do |p| %>
+      <li ><%= link_to p.title, p, style: "color:blue;" %></li>
+      <% end %>
+    </ul>
+
+
   </section>
   <div>
 </aside>

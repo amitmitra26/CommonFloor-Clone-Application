@@ -13,6 +13,7 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.string :owner_type
       t.string :city
       t.string :rooms
+      t.integer :viewers, default: 0
       t.timestamps
     end
   end

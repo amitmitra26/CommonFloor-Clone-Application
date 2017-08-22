@@ -1,19 +1,31 @@
 <h1>Reviews</h1>
-<table>
+<table class="table">
+  <tr>
+    <th>Property</th>
+    <th>Property Added By</th>
+    <th>Reviewed By</th>
+    <th>Rating</th>
+    <th>Comments</th>
+    <th>View Review</th>
+  </tr>
 <% @reviews.each do |rev| %>
 <tr>
   <td>
-    <%= rev.rating %>
+    <%= link_to rev.property.title, admin_property_path(current_user,rev.property_id), class: "btn btn-lg-primary", style:"font-size:22px;" %>
   </td>
-<td>
-  <%= link_to rev.comment, review_approval_path(rev) %>
-</td>
-<td>
-  <%= link_to rev.property_id, admin_property_path(current_user,rev.property_id) %>
-</td>
-<td>
-  <%= link_to rev.user_id, admin_user_path(current_user, rev.user_id) %>
-</td>
+  <td><%= link_to rev.property.user.name, admin_user_path(current_user,rev.property.user_id), class: "btn btn-lg-primary", style: "background-color:yellow; border:1px solid brown; color:brown;"  %></td>
+  <td>
+    <%= link_to rev.user.name, admin_user_path(current_user, rev.user_id), class: "btn btn-lg-primary", style: "background-color:yellow; border:1px solid brown; color:brown;" %>
+  </td>
+  <td style="font-size:22px; color:red;">
+    <%= rev.rating   %>
+  </td>
+  <td style="font-size:22px; color:green;">
+    <%=  rev.comment   %>
+  </td>
+  <td><%= link_to "View Review", review_approval_path(rev), class: "btn btn-lg-primary", style: "background-color:white; border:1px solid black; color:black;" %> </td>
+
+
 </tr>
 <% end %>
 
