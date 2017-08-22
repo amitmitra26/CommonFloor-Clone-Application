@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818100508) do
+ActiveRecord::Schema.define(version: 20170819072856) do
 
   create_table "favourites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "interested", default: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170818100508) do
     t.string "owner_type"
     t.string "city"
     t.string "rooms"
+    t.integer "viewers", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -67,12 +68,9 @@ ActiveRecord::Schema.define(version: 20170818100508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.string "activation_digest"
-    t.boolean "activated", default: false
-    t.datetime "activated_at"
     t.string "provider"
     t.string "uid"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
   end
 
   add_foreign_key "properties", "users"

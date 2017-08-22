@@ -13,6 +13,9 @@ before_action :set_auth
   def show
     @user = User.find(params[:id])
     @property = Property.new
+
+      @properties_visited = property_visited_load
+
   end
 
   def new
@@ -47,7 +50,9 @@ before_action :set_auth
     end
 
     def destroy
-      User.find(params[:id]).destroy
+      user = User.find(params[:id])
+      property_visited_delete(user)
+      user.destroy
       flash[:success] = "User deleted"
       redirect_to users_url
     end
@@ -70,7 +75,7 @@ before_action :set_auth
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless current_user?(@user) || current_user.is_admin
     end
     def set_auth
        @auth = session[:omniauth] if session[:omniauth]

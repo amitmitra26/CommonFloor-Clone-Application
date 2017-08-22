@@ -11,8 +11,8 @@ User.create!(name:  "Admin User Amit",
              password:              "amitadmin",
              password_confirmation: "amitadmin",
              is_admin:     true,
-             activated: true,
-             activated_at: Time.zone.now)
+             uid: '007'
+             )
 
 
 
