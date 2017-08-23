@@ -1,5 +1,5 @@
 <div class="row">
-  <%= image_tag( "Slide.png" , class: "banner", style: "height:350px;") %><!-- Banner image at Tab and Desktop View -->
+  <%= image_tag( "Slide.png" , class: "banner", style: "height:350px;") %><!-- Banner image  -->
 </div>
 
 
@@ -65,12 +65,12 @@
     <div class="row">
       <span class="col-sm-6">
         <%= label_tag(:max, "Maximum Price") %>
-        <%= number_field_tag(:max) %>
+        <%= number_field_tag :max, nil, min: 0 %>
       </span>
 
       <span class="col-sm-6">
         <%= label_tag(:min, "Minimum Price") %>
-        <%= number_field_tag(:min) %>
+        <%= number_field_tag :min, nil, min: 0 %>
       </span>
     </div>
 

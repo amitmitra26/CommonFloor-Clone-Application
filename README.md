@@ -1,6 +1,6 @@
 # README
 
-
+Rails Basic and Advanced Project:
 
 You need to create a working, demonstrable and usable project using the Rails 5 framework.The project source code can live on Github and be deployed to Heroku (optional).
 You need to use Bootstrap framework for styling the views and pages.
@@ -24,7 +24,7 @@ The admin will be able to access all the features and functionalities from the a
 
            
 
-Admin features should be under “/admin” path, After admin’s approval ratings / reviews should be public, for this feature you should save reference of admin user in approved_by column.   
+Admin features should be under “/admin” path, After admin’s approval ratings / reviews should be public, for this feature you should save reference of admin user in approved_by column.  
 
 
 The regular users will be able to to add, edit, update and delete their own properties along with the other details like Images, Property Type, Location, Price (INR), Area (sqft.), Developer’s or Owner’s Name, Contact Person, info of the property for sell, rental, sold etc will be mark to each of the properties etc. General users will also be able to provide ratings / reviews which can be displayed on the property details.
@@ -66,3 +66,14 @@ Additional specifications:
 Automated Testing, Use Rspec for this
 
 For user sign-up/sign-in, it should not use gems
+
+
+Guides to follow about Redis Server:
+
+1. Please Install and Start Redis Server before Running the Project.
+
+2. Redis Server application file is already present in the Project Directory just need to install it in the current      project working directory. Folder is: /redis-2.8.18
+
+3. Redis commands to start server:
+   $ cd redis-2.8.18/src
+   $ ./redis-server
