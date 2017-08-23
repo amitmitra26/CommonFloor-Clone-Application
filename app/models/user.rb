@@ -1,8 +1,4 @@
 class User < ApplicationRecord
- # attr_accessor :remember_token, :activation_token
-
-
-
   before_save :email_downcase
 
   validates :name,  presence: true, length: { maximum: 50 }
@@ -23,30 +19,29 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
   def authenticated?(attribute, token)
-      digest = send("#{attribute}_digest")
-      return false if digest.nil?
-      BCrypt::Password.new(digest).is_password?(token)
-    end
-
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
+  end
 
   def self.sign_in_from_omniauth(auth)
-  		User.find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
-  	end
+		User.find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)
+	end
 
-  	def self.create_user_from_omniauth(auth)
-     u = User.new
-     u.provider = auth['provider']
-     u.uid = auth['uid']
-     u.name = auth['info']['name']
-     u.email = auth['info']['email']
-      u.save(validate: false)
-      return u
+	def self.create_user_from_omniauth(auth)
+    u = User.new
+    u.provider = auth['provider']
+    u.uid = auth['uid']
+    u.name = auth['info']['name']
+    u.email = auth['info']['email']
+    u.save(validate: false)
+    return u
   end
 
   def email_downcase
     if email
-   self.email = email.downcase
- end
- end
+      self.email = email.downcase
+    end
+  end
 
 end

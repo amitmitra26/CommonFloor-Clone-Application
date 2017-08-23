@@ -1,22 +1,25 @@
-<h1>You can View Inlisted property</h1>
+<% if @user.properties.empty? %>
+  <h2 class="text-center"> You don't have any Active Property Add </h2>
+<% else %>
 <div>
-
-  <table class="table">
+  <table class="table" id="active-ads">
     <% @user.properties.each do |prop| %>
     <tr>
-      <th><%if prop.picture? %>
-      <%= prop.picture %>
-      <% else %>
-      <%= image_tag("no-thumb.jpg", style: "display:inline; height:105px; width:200px;") %>
-      <% end %>
-    </th>
-      
+      <th>
+        <%if prop.picture? %>
+        <%= image_tag(prop.picture, style: "display:inline; height:105px; width:200px;") %>
+        <% else %>
+        <%= image_tag("no-thumb.jpg", style: "display:inline; height:105px; width:200px;") %>
+        <% end %>
+      </th>
+
       <% if current_user.is_admin? %>
-      <th> <%= link_to prop.title, admin_property_path(current_user,prop) %> </th>
+        <th> <%= link_to prop.title, admin_property_path(current_user,prop) %> </th>
       <% else %>
-      <th> <%= link_to prop.title, user_property_path(current_user,prop) %> </th>
+        <th> <%= link_to prop.title, user_property_path(current_user,prop) %> </th>
       <% end %>
     </tr>
     <% end %>
   </table>
 </div>
+<% end %>

@@ -4,12 +4,10 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
+      <p>Enter Either <strong>Email Address</strong> or <strong>User_Id(uid)</strong></p>
 
-    <p>Enter Either Email Address or Name</p>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
-
-      <p>Or</p>
 
       <%= f.label :uid %>
       <%= f.text_field :uid, class: 'form-control' %>
@@ -19,8 +17,17 @@
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
-<p><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %><%= link_to "auth/facebook" do %> <%= image_tag('facebook.png', width: '40', height: '40', class: 'image-circle')%><%end%></p>
+    <p></p>
+    <p>Sign In through your Social Network</p>
+    <p>
+      <%= link_to "/auth/google_oauth2" do %>
+        <%= image_tag('google.png', width: '40', height: '40', class: 'image-circle')%>
+      <% end %>
+      <%= link_to "auth/facebook" do %>
+        <%= image_tag('facebook.png', width: '40', height: '40', class: 'image-circle')%>
+      <% end %>
+    </p>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p> New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
