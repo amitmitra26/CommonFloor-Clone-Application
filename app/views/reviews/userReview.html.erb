@@ -1,15 +1,20 @@
-<% @reviews.each do |r| %>
-<p>
-  <%= r.rating %>
-</p>
-<p>
-  <%= r.comment %>
-</p>
-<p>
-  <%= link_to r.property.title, r.property %>
+<% unless @reviews.empty? %>
+  <% @reviews.each do |r| %>
+  <p>
+    <strong>Rating:</strong>
+    <%= r.rating %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= r.comment %>
+  </p>
+  <p>
+    <%= link_to r.property.title, r.property %>
+  </p>
 
-</p>
-
-<p> <%= link_to "Edit Your Review", edit_user_review_path(current_user,r) %> </p>
-<p> <%= link_to "Remove Comment", user_review_path(current_user,r), method: :delete, data: { confirm: "Are You Sure?"} %> </p>
+  <p> <%= link_to "Edit Your Review", edit_user_review_path(current_user,r) %> </p>
+  <p> <%= link_to "Remove Comment", user_review_path(current_user,r), method: :delete, data: { confirm: "Are You Sure?"} %> </p>
+  <% end %>
+<% else %>
+  <p class="text-center">You havn't Reviewed any Property</p>
 <% end %>

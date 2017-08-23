@@ -1,28 +1,151 @@
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table" id="view" style="border:1px solid blue;">
+      <tr>
+        <th>Title:</th>
+        <td><strong><%= @property.title %></strong></td>
+      </tr>
+      <tr>
+        <% if @property.picture? %>
+          <%= image_tag @property.picture.url %>
+        <% else %>
+          <%= image_tag("no-thumb.jpg") %>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Current Status:</th>
+        <td><strong><%= @property.status %></strong></td>
+        <th><%= @property.info %></th>
+      </tr>
+      <tr>
+        <th>City:</th>
+        <td><%= @property.city %></td>
+        <th>Location:</th>
+        <td><%= @property.location %></td>
+      </tr>
+      <tr>
+        <th>Rooms:</th>
+        <td><%= @property.rooms %></td>
+        <th>Bedrooms:</th>
+        <td><%= @property.bedrooms %></td>
+        <th>Bathrooms:</th>
+        <td><%= @property.bathrooms %></td>
+      </tr>
+      <tr>
+        <th>Description:</th>
+        <td><%= @property.description %></td>
+      </tr>
+      <tr>
+        <th>Category:</th>
+        <td><%= @property.category %></td>
+      </tr>
+      <tr>
+        <th>Area( sqft ):</th>
+        <% if @property.area %>
+          <td><%= @property.area %></td>
+        <% else %>
+          <td>Not Specified</td>
+        <% end %>
+        <th>Price( INR ):</th>
+        <% if @property.price %>
+          <td><%= @property.price %></td>
+        <% else %>
+          <td>Not Specified</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Owner:</th>
+        <td><%= @property.owner %></td>
+        <th>Contact info:</th>
+        <td><%= @property.contact %></td>
+      </tr>
+      <tr>
+        <th>Owner Type:</th>
+        <td><%= @property.owner_type %></td>
+      </tr>
+      <tr>
+        <th>Added By:</th>
+        <td><%= @property.user.name %></td>
+      </tr>
+    </table>
+  </div>
 
+  <div class="col-sm-4">
+    <p> Total viewers: <%= @property.viewers %></p>
+    <p>Overall Rating:
+      <% avg_rating = @property.reviews.where(status: "Approve").average(:rating) %>
+      <% if avg_rating %>
+        <%= avg_rating %>
+      <% else %>
+        <span>Not Rated Yet</span>
+      <% end %>
+    </p>
+    <% if current_user && (current_user == @property.user || current_user.is_admin) %>
+    <p>
+      <%= link_to "Modify Add", edit_user_property_path(current_user,@property) %>
+    </p>
+    <p>
+      <%= link_to "Delete Add", user_property_path(current_user,@property), method: :delete, data: { confirm: "Are You Sure?"} %>
+    </p>
+    <% end %>
+  </div>
+</div>
 
-<% if current_user && (current_user == @property.user || current_user.is_admin) %>
-<%= link_to "Modify Add", edit_user_property_path(current_user,@property) %>
-<%= link_to "Delete Add", user_property_path(current_user,@property), method: :delete, data: { confirm: "Are You Sure?"} %>
-<% end %>
+<div class="row">
+  <div class="col-sm-6">
+    <% if current_user && current_user != @property.user %>
+      <%= link_to "Review Add", new_property_review_path(@property) %>
+      <% if @favourite %>
+        <% msg = "Update Favourites" %>
+      <% else %>
+        <% msg = "Add Favourites" %>
+      <% end %>
+      <%= form_for (@favourite) || ([@property, @property.favourites.build]) do |f| %>
+        <%= f.label :interested,  "Interested" %>
+        <%= f.check_box(:interested) %>
 
-<%= render 'form' %>
+        <%= f.submit msg %>
 
-<% if current_user && current_user != @property.user %>
-<%= link_to "Review Add", new_property_review_path(@property) %>
-<% if @favourite %>
-<% msg = "Update your property Interest in favourite list" %>
-<% else %>
-<% msg = "Add this property to your Favourite List" %>
-<% end %>
-<%= form_for (@favourite) || ([@property, @property.favourites.build]) do |f| %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-sm-6">
+    <p>Share this Property</p>
+    <p><%= social_share_button_tag("My Home Page", :url => "http://commonfloorclone.com") %></p>
+  </div>
+</div>
 
-<%= f.label :interested,  "Mark as Interested" %>
-<%= f.check_box(:interested) %>
+<br>
 
-<%= f.submit msg %>
-
-<% end %>
-<% end %>
-
-
-<%= social_share_button_tag("My Home Page", :url => "http://commonfloorclone.com") %>
+<div class="row">
+  <div class="col-sm-6 text-center">
+    <% unless @property.reviews.empty? %>
+      <strong>User Reviews for this Property:</strong>
+      <table>
+        <% f = false %>
+        <% @property.reviews.each do |r| %>
+          <% if r.status == "Approve" %>
+          <% f = true %>
+          <tr>
+            <th>User:</th>
+            <td><%= r.user.name %></td>
+          </tr>
+          <tr>
+            <th>Rating:</th>
+            <td><%= r.rating %></td>
+          </tr>
+          <tr>
+            <th>Comments:</th>
+            <td><%= r.comment %></td>
+          </tr>
+          <% end %>
+        <% end %>
+        <% unless f %>
+          <p>Reviews are given but yet not approved</p>
+        <% end %>
+      </table>
+    <% else %>
+      <p>No any Reviews are given for this Property</p>
+    <% end %>
+  </div>
+</div>

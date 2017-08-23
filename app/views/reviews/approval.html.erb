@@ -1,27 +1,36 @@
 <h1>Review Details</h1>
 
+<p>
+  <strong>Rating:</strong>
+  <%= @review.rating %>
+</p>
 
 <p>
-<%= @review.rating %>
+  <strong>Comment:</strong>
+  <%= @review.comment %>
 </p>
 
 <p>
-<%= @review.comment %>
+  <strong>User:</strong>
+  <%= link_to @review.user.name, admin_user_path(current_user, @review.user_id) %>
+</p>
+<p>
+  <strong>Property:</strong>
+  <%= link_to @review.property.title, admin_property_path(current_user, @review.property_id) %>
 </p>
 
-<p>User Id:
-  <%= link_to @review.user_id, admin_user_path(current_user, @review.user_id) %>
-</p>
-<p>Property Id:
-  <%= link_to @review.property_id, admin_property_path(current_user, @review.property_id) %>
+<p>
+  <strong>Admin Approval Status:</strong>
+  <p><%= @review.status %></p>
 </p>
 
+<p>
+  <%= form_for (@review), url: review_approve_path(@review), method: 'PATCH' do |f| %>
+    <%= f.label("Reject", style:"color:red;") %>
+    <%= f.radio_button(:status, "Reject") %>
+    <%= f.label("Approve", style:"color:green;") %>
+    <%= f.radio_button(:status, "Approve") %>
+    <p><%= f.submit "Update Status" %></p>
 
-<p>Approve Review:
-<%= form_for (@review), url: review_approve_path(@review), method: 'PATCH' do |f| %>
-<%= f.radio_button(:status, "Reject") %>
-<%= f.radio_button(:status, "Approve") %>
-<%= f.submit %>
-<% end %>
-
+  <% end %>
 </p>

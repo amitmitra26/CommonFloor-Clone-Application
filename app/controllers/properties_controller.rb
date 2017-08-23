@@ -1,7 +1,8 @@
 class PropertiesController < ApplicationController
-skip_before_action :require_login, only: [:home, :show]
-before_action :admin_login, only: [:adminUser]
-before_action :correct_property, only: [:edit, :delete, :update]
+  skip_before_action :require_login, only: [:home, :show]
+  before_action :admin_login, only: [:adminUser]
+  before_action :correct_property, only: [:edit, :delete, :update]
+
   def index
     @user = current_user
   end
@@ -19,23 +20,18 @@ before_action :correct_property, only: [:edit, :delete, :update]
     end
     if @property.save
       flash[:success] = "Property Submitted"
-    redirect_to @property
-  else
-    render 'new'
-  end
+      redirect_to @property
+    else
+      render 'new'
+    end
   end
 
   def view
     @property = Property.find(params[:property_id])
   end
 
-
-
   def edit
-
     @property = Property.find(params[:id])
-
-
   end
 
   def update
@@ -57,43 +53,33 @@ before_action :correct_property, only: [:edit, :delete, :update]
   end
 
   def adminUser
-    @properties_to_sale = Property.where( info: 'For Sale', owner_type: 'I have a Property' )
-    @properties_to_rent = Property.where( info: 'For Rent', owner_type: 'I have a Property' )
-    @properties_needed_for_sale = Property.where( info: 'For Sale', owner_type: 'I need a Property' )
-    @properties_needed_for_rent = Property.where( info: 'For Rent', owner_type: 'I need a Property' )
-
+    @properties = Property.all
   end
+
   def show
-    #@user = User.find(current_user.id)
     @property = Property.find(params[:id])
     unless current_user == @property.user
-    @property.viewers = @property.viewers + 1
-    @property.save
-  end
+      @property.viewers = @property.viewers + 1
+      @property.save
+    end
     if logged_in?
-
       unless (current_user == @property.user)
         property_visited(@property)
-         UserMailer.property_visited(@property,current_user).deliver_now
+       UserMailer.property_visited(@property,current_user).deliver_now
       end
     end
-
     @favourite = Favourite.find_by(user_id: current_user, property_id: @property)
-
-
   end
 
-   private
-
+  private
    def correct_property
      @property = Property.find(params[:id])
-
-       if !(current_user.is_admin)
-         if current_user != @property.user
-       flash[:danger] = "You are Not Authorize to this Property Operations"
-       redirect_to root_path
+     unless (current_user.is_admin)
+       if current_user != @property.user
+         flash[:danger] = "You are Not Authorize to this Property Operations"
+         redirect_to root_path
+       end
      end
-   end
    end
 
 end

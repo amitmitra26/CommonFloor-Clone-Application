@@ -1,19 +1,16 @@
 <header class="container gap-bottom" style="background-color:black; padding-bottom:10px;">
    <%= link_to image_tag( "commonfloor logo.png" ), root_path, id: "logo" %>
    <div style="float:right; ">
-   <% if logged_in? %>
-   <% if current_user.is_admin %>
-   <%= link_to "Post a Free Add", new_admin_property_path(current_user), class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;"%>
-     <% else %>
-     <%= link_to "Post a Free Add", new_user_property_path(current_user), class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;" %>
-
-     <% end %>
-
-       <% else %>
-       <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;" %>
-         <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;" %>
-
-       <% end %>
+     <% if logged_in? %>
+      <% if current_user.is_admin %>
+        <%= link_to "Post a Free Add", new_admin_property_path(current_user), class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;"%>
+      <% else %>
+        <%= link_to "Post a Free Add", new_user_property_path(current_user), class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;" %>
+      <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary hidden-xs", style: "margin-top:10px;" %>
+    <% end %>
    </div>
    <button type="button" id="mobile_menu" class="navbar-toggle" data-toggle="collapse" data-target="#site_navigation">
      <%= image_tag( "Menu(Mobile).png")%>
@@ -26,29 +23,29 @@
        <li><%= link_to "Home", root_path %></li>
        <li><%= link_to "Help", help_path %></li>
        <% if logged_in? %>
-       <% if current_user.is_admin? %>
-         <li><%= link_to "Users", admin_users_path(current_user) %></li>
-         <li><%= link_to "Properties", admin_AllProperties_path %></li>
-         <li><%= link_to "Reviews", admin_reviews_path(current_user) %></li>
-       <% end %>
- <% end %>
+        <% if current_user.is_admin? %>
+          <li><%= link_to "Users", admin_users_path(current_user) %></li>
+          <li><%= link_to "Properties", admin_AllProperties_path %></li>
+          <li><%= link_to "Reviews", admin_reviews_path(current_user) %></li>
+        <% end %>
+      <% end %>
      </ul>
-     <% if logged_in? %>
-     <span class="dropdown hidden-xs" style="float:right; position:relative; right:50px;">
-           <button class="dropdown-toggle" data-toggle="dropdown" style="margin-top:5px;">
-             Account <b class="caret"></b>
-           </button>
-           <ul class="dropdown-menu" >
-             <% if current_user.is_admin? %>
-             <li><%= link_to "Profile", admin_user_path(current_user,current_user) %></li>
-             <li><%= link_to "Settings", edit_admin_user_path(current_user,current_user) %></li>
-               <li><%= link_to "Active Ads", admin_properties_path(current_user) %></li>
-             <% else %>
-             <li><%= link_to "Profile", current_user %></li>
+     <% if logged_in? %><!-- Profile Dropdown menu for Desktop and Tab view -->
+      <span class="dropdown hidden-xs" style="float:right; position:relative; right:50px;">
+        <button class="dropdown-toggle" data-toggle="dropdown" style="margin-top:5px;">
+          Account <b class="caret"></b>
+        </button>
+        <ul class="dropdown-menu" >
+          <% if current_user.is_admin? %>
+            <li><%= link_to "Profile", admin_user_path(current_user,current_user) %></li>
+            <li><%= link_to "Settings", edit_admin_user_path(current_user,current_user) %></li>
+            <li><%= link_to "Active Ads", admin_properties_path(current_user) %></li>
+            <% else %>
+              <li><%= link_to "Profile", current_user %></li>
 
-             <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
 
-             <li><%= link_to "Active Ads", user_properties_path(current_user) %></li>
+              <li><%= link_to "Active Ads", user_properties_path(current_user) %></li>
 
              <% end %>
              <li><%= link_to "Your Reviews", userReview_reviews_path %></li>
@@ -59,44 +56,44 @@
              </li>
            </ul>
          </span>
-         <% end %>
+      <% end %>
    </nav>
  </div>
 
-<div class="continer visible-xs gap-bottom">
+<div class="continer visible-xs gap-bottom"> <!-- Profile Dropdown menu for Mobile view -->
   <% if logged_in? %>
-  <span class="dropdown visible-xs" style="float:left; margin-left:15px;">
-        <button class="dropdown-toggle" data-toggle="dropdown" style="margin-top:5px;">
-          Account <b class="caret"></b>
-        </button>
-        <ul class="dropdown-menu" >
-          <% if current_user.is_admin? %>
+    <span class="dropdown visible-xs" style="float:left; margin-left:15px;">
+      <button class="dropdown-toggle" data-toggle="dropdown" style="margin-top:5px;">
+        Account <b class="caret"></b>
+      </button>
+      <ul class="dropdown-menu" >
+        <% if current_user.is_admin? %>
           <li><%= link_to "Profile", admin_user_path(current_user,current_user) %></li>
           <li><%= link_to "Settings", edit_admin_user_path(current_user,current_user) %></li>
-            <li><%= link_to "Active Ads", admin_properties_path(current_user) %></li>
-          <% else %>
+          <li><%= link_to "Active Ads", admin_properties_path(current_user) %></li>
+        <% else %>
           <li><%= link_to "Profile", current_user %></li>
 
           <li><%= link_to "Settings", edit_user_path(current_user) %></li>
 
           <li><%= link_to "Active Ads", user_properties_path(current_user) %></li>
 
-          <% end %>
+        <% end %>
           <li><%= link_to "Your Reviews", userReview_reviews_path %></li>
           <li><%= link_to "Favourites", favourites_path %></li>
           <li class="divider"></li>
           <li>
             <%= link_to "Log out", logout_path, method: :delete %>
           </li>
-        </ul>
-      </span>
-  <% if current_user.is_admin %>
-  <%= link_to "Post a Free Add", new_admin_property_path(current_user), class: "btn btn-lg btn-primary", style: "width:45%; float:right; margin-right:15px;"%>
+      </ul>
+    </span>
+    <% if current_user.is_admin %>
+      <%= link_to "Post a Free Add", new_admin_property_path(current_user), class: "btn btn-lg btn-primary", style: "width:45%; float:right; margin-right:15px;"%>
     <% else %>
-    <%= link_to "Post a Free Add", new_user_property_path(current_user), class: "btn btn-lg btn-primary", style: "width:45%; float:right; margin-right:15px;" %>
+      <%= link_to "Post a Free Add", new_user_property_path(current_user), class: "btn btn-lg btn-primary", style: "width:45%; float:right; margin-right:15px;" %>
     <% end %>
-      <% else %>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary", style: "width:45%; margin-left:15px;"%>
+  <% else %>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary", style: "width:45%; margin-left:15px;"%>
     <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary", style: "width:45%; float:right; margin-right:15px;"%>
  <% end %>
 </div>

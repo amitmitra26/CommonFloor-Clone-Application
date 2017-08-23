@@ -11,7 +11,7 @@ class Property < ApplicationRecord
   validates :location, presence: true, length: { in: 3..50 }
   validates :bedrooms, presence: true
   validates :bathrooms, presence: true
-    validate  :picture_size
+  validate  :picture_size
   def property_owner_type
     if owner_type == 'I have a Property'
       unless price.present?

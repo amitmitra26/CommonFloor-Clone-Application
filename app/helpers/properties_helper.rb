@@ -1,9 +1,7 @@
 module PropertiesHelper
 
   def property_visited(property)
-
     count1 =  $redis.sadd((current_user.id), (property.id).to_s)
-
   end
 
   def visited_property_delete(property)

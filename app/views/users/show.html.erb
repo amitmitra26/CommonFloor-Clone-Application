@@ -1,27 +1,53 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-<aside>
   <section class="user_info">
-    <h1>
-
+    <p>
       <% if @auth %>
-Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: '50', height: '50', class: 'image-circle')%>
-   <% end %>
-
-    <p> <%= @user.name %></p>
-
-    </h1>
-
-
-    <ul>
-      <% pnm = Property.find(@properties_visited) %>
-      <% pnm.each do |p| %>
-      <li ><%= link_to p.title, p, style: "color:blue;" %></li>
+        Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: '50', height: '50', class: 'image-circle')%>
       <% end %>
-    </ul>
-
+    </p>
+    <table class="table">
+      <tr>
+        <th>Name:</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>User_ID(uid):</th>
+        <td><%= @user.uid %></td>
+      </tr>
+      <tr>
+        <th>email:</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>Mobile:</th>
+        <td><%= @user.mobile %></td>
+      </tr>
+      <% if @user.provider %>
+      <tr>
+        <th>Loggin In Through:</th>
+        <td><%= @user.provider %></td>
+      </tr>
+      <% end %>
+    </table>
+    <div>
+      <% pnm = Property.find(@properties_visited) %>
+      <% unless pnm.empty? %>
+        <h1 class="text-center">Recently Visited Properties</h1>
+        <div>
+          <% pnm.each do |prop| %>
+          <span class="thumbnail col-sm-2" style="margin-right:10px;">
+            <% if prop.picture? %>
+              <%= link_to image_tag(prop.picture, style: "display:inline; height:105px; width:200px;"), prop %>
+            <% else %>
+              <%= link_to image_tag("no-thumb.jpg", style: "display:inline; height:105px; width:200px;"), prop %>
+            <% end %>
+            <p><%= prop.title %></p>
+          </span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
   </section>
-  <div>
-</aside>
 </div>

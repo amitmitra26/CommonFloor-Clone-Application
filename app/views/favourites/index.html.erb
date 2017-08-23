@@ -1,13 +1,20 @@
-<table class="table">
-  <th>Property</th><th>Interest</th><th>Remove from Favourite List</th>
-  <% @user.favourites.each do |f| %>
-  <tr>
-    <td><%= link_to f.property.title, f.property %></td><% if f.interested %>
-    <td>Interested</td>
-    <% else %>
-    <td>Not Interested</td>
+<% unless @user.favourites.empty? %>
+  <table class="table">
+    <th>Property</th>
+    <th>Interest</th>
+    <th>Remove from Favourite List</th>
+    <% @user.favourites.each do |f| %>
+      <tr>
+        <td><%= link_to f.property.title, f.property %></td>
+        <% if f.interested %>
+          <td>Interested</td>
+        <% else %>
+          <td>Not Interested</td>
+        <% end %>
+        <td><%= link_to 'Remove', favourite_path(f), method: :delete, data: { confirm: "Are You Sure? If you Remove your interest over property will also be removed"}%></td>
+      </tr>
     <% end %>
-    <td><%= link_to 'Remove', favourite_path(f), method: :delete, data: { confirm: "Are You Sure? If you Remove your interest over property will also be removed"}%></td>
-  </tr>
-  <% end %>
-</table>
+  </table>
+<% else %>
+  <h2 class="text-center">You have not marked any property as Interested</h2>
+<% end %>

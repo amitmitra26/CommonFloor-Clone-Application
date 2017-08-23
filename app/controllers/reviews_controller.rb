@@ -1,46 +1,40 @@
 class ReviewsController < ApplicationController
-skip_before_action :require_login, only: [:show]
-before_action :admin_login, only: [:index, :approval]
-before_action :correct_review, only: [:edit, :delete, :update, :approve, :approval]
+  skip_before_action :require_login, only: [:show]
+  before_action :admin_login, only: [:index, :approval]
+  before_action :correct_review, only: [:edit, :delete, :update, :approve, :approval]
+
   def index
     @reviews = Review.all
   end
 
   def userReview
-
     @reviews = current_user.reviews
   end
 
   def new
-
     @property = Property.find(params[:property_id])
     @review = Review.new
-
   end
 
   def create
-
     @property = Property.find(params[:property_id])
     @review = @property.reviews.create(params.require(:review).permit(:rating,:comment))
     @review.user_id = current_user.id
     if @review.save
-
-
       flash[:success] = "Review Submitted"
-     redirect_to property_review_path(@property,@review)
-   else
-     render 'new'
-   end
- end
+      redirect_to property_review_path(@property,@review)
+    else
+      render 'new'
+    end
+  end
 
-def show
-  @review = Review.find(params[:id])
-end
+  def show
+    @review = Review.find(params[:id])
+  end
 
   def approval
     @review = Review.find(params[:review_id])
   end
-
 
   def approve
     @review = Review.find(params[:review_id])
@@ -74,19 +68,20 @@ end
   def destroy
     Review.find(params[:id]).destroy
     flash[:success] = "Review Removed"
-    redirect_to user_userReview_path(current_user)
+    redirect_to userReview_reviews_path
   end
 
 private
   def correct_review
-    @review = Review.find(params[:review_id])
-
-      if !(current_user.is_admin)
-        if current_user != @review.user
-      flash[:danger] = "You are Not Authorize to this Review Operations"
-      redirect_to root_path
+    unless (current_user.is_admin)
+      @review = Review.find(params[:id])
+      if current_user != @review.user
+        flash[:danger] = "You are Not Authorize to this Review Operations"
+        redirect_to root_path
+      else
+        @review = Review.find(params[:review_id])
+      end
     end
-  end
   end
 
 end

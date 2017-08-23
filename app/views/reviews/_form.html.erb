@@ -1,0 +1,14 @@
+<%= render 'shared/error_messages', obj: rev %>
+
+<p>
+  <%= f.label :rating %>
+  <p><%= f.number_field(:rating, in: 0..5) %></p>
+
+</p>
+
+<p>
+  <%= f.label :comment %>
+  <p><%= f.text_area :comment %></p>
+</p>
+
+<%= f.submit %>

@@ -1,54 +1,76 @@
-<p> Total viewers: <%= @property.viewers %></p>
+<tr>
+  <th>
+    <span><%= f.label :title %></span>
+    <span><%= f.text_field :title %></span>
+  </th>
+  <th>
+    <span><%= f.radio_button(:rooms, '1RK') %><%= f.label(:rooms, '1RK') %></span>
+    <span><%= f.radio_button(:rooms, '1BHK') %><%= f.label(:rooms, '1BHK') %></span>
+    <span><%= f.radio_button(:rooms, '2BHK') %><%= f.label(:rooms, '2BHK') %></span>
+    <span><%= f.radio_button(:rooms, '3BHK') %><%= f.label(:rooms, '3BHK') %></span>
+    <span><%= f.radio_button(:rooms, '4BHK') %><%= f.label(:rooms, '4BHK') %></span>
+    <span><%= f.radio_button(:rooms, '4BHK+') %><%= f.label(:rooms, '4BHK+') %></span>
+  </th>
+</tr>
+<tr>
+  <th>
+    <span><%= f.label :bedrooms %></span>
+    <span><%= f.select(:bedrooms, ['1','2','3','4','5','6+']) %></span>
+  </th>
+  <th>
+    <span><%= f.label :bathrooms %></span>
+    <span><%= f.select(:bathrooms, ['1','2','3','4+']) %></span>
+  </th>
+</tr>
+<tr>
+  <th>
+    <%= f.label :description %>
+    <p><%= f.text_area :description %></p>
+  </th>
+  <th>
+    <span><%= f.label :category %></span>
+    <span><%= f.select(:category, ['Apartment','Hotel','Plot','Bunglow','House','Office']) %></span>
+  </th>
+</tr>
 
-<div style="margin-bottom:20px;">
-<p>
-  <strong><%= @property.title %></strong>
-</p>
-
-   <%= image_tag @property.picture.url if @property.picture? %>
-<p><%= @property.bedrooms %></p>
-<p><%= @property.bathrooms %></p>
-
-<p>
-  <%= @property.description %>
-</p>
-
-<p>Overall Rating: <%= @property.reviews.where(status: "Approve").average(:rating) %></p>
-<p>
-  <%= @property.category %>
-</p>
-
-<p>
-  <%= @property.owner %>
-
-</p>
-
-<p>
-  <%= @property.area %>
-</p>
-
-<p>
-  <%= @property.price %>
-</p>
-
-<p>
-  <%= @property.contact %>
-
-</p>
-
-</div>
-<% @property.reviews.each do |r| %>
-<% if r.status == "Approve" %>
-<p>
-  <%= r.rating %>
-</p>
-<p>
-  <%= r.comment %>
-
-</p>
-<p> Reviewed By:
-  <% u = r.user %>
-  <%= u.name %>
-</p>
-<% end %>
-<% end %>
+<tr>
+  <td>
+    <span class="picture">
+      <strong>Upload Picture:</strong>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+  </td>
+</tr>
+<tr>
+  <th>
+    <span><%= f.label :city %></span>
+    <span><%= f.text_field :city %></span>
+  </th>
+  <th>
+    <span><%= f.label :location %></span>
+    <span><%= f.text_field :location %></span>
+  </th>
+</tr>
+<tr>
+  <th>
+    <span><%= f.label :price %></span>
+    <span><%= f.text_field :price %></span>
+  </th>
+  <th>
+    <span><%= f.label :area %></span>
+    <span><%= f.text_field :area %></span>
+  </th>
+</tr>
+<tr>
+  <th>
+    <span><%= f.label :owner %></span>
+    <span><%= f.text_field :owner %></span>
+  </th>
+  <th>
+    <span><%= f.label :contact %></span>
+    <span><%= f.text_field :contact %></span>
+  </th>
+</tr>
+<tr>
+  <th><%= f.submit %></th>
+</tr>

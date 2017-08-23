@@ -1,7 +1,6 @@
 module UsersHelper
   def property_visited_load
     @properties_visited = $redis.smembers(current_user.id)
-
   end
 
   def property_visited_delete(user)
@@ -16,9 +15,5 @@ module UsersHelper
     end
     $redis.del(user.id)
   end
-
-
-
-
 
 end

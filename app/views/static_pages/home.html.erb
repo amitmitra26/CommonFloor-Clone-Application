@@ -1,75 +1,102 @@
-
 <div class="row">
   <%= image_tag( "Slide.png" , class: "banner", style: "height:350px;") %><!-- Banner image at Tab and Desktop View -->
-
 </div>
 
 
 <div class="row">
-
- <%= form_tag('/search', method: 'GET', class: "text-center", style: "border:2px solid #8d33ff; background-color:#fff588;") do %>
- <div class="row">
-
-<p style="font-size:26px; font-family:Courier; font-weight:bold;">Search Property:</p>
-
-<div  class="col-sm-3">
-  <span class="col-sm-6"> <%= label_tag(:info, "Buy")  %>
-   <%= radio_button_tag(:info, 'For Sale') %></span>
-  <span class="col-sm-6"> <%= label_tag(:info, 'Rent') %>
-     <%= radio_button_tag(:info, 'For Rent') %></span>
-</div >
-<div class="col-sm-6"> <span class="col-sm-6"><%= label_tag(:city, 'City') %>
-        <%= text_field_tag(:city) %></span>
-  <span class="col-sm-6">  <%= label_tag(:location, 'Location') %>
-        <%= text_field_tag(:location) %></span></div>
-<div  class="col-sm-3"> <%= label_tag(:category) %>   <%= select_tag(:category, options_for_select(['Apartment','Hotel','Plot','Bunglow','House','Office'])) %>
-</div>
-</div>
-    <div  class="row gap-bottom">
-
-      <div class="col-sm-2">  <%= radio_button_tag(:rooms, 'Studio') %><%= label_tag(:rooms, 'Studio') %></div>
-
-        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '1BHK') %>  <%= label_tag(:rooms, '1BHK') %></div>
-
-        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '2BHK') %>  <%= label_tag(:rooms, '2BHK') %></div>
-
-        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '3BHK') %><%= label_tag(:rooms, '3BHK') %></div>
-
-        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '4BHK') %>  <%= label_tag(:rooms, '4BHK') %></div>
-
-        <div class="col-sm-2">  <%= radio_button_tag(:rooms, '4BHK+') %>  <%= label_tag(:rooms, '4BHK+') %></div>
+  <%= form_tag('/search', method: 'GET', class: "text-center", style: "border:2px solid #8d33ff; background-color:#fff588;") do %>
+    <div class="row">
+      <p style="font-size:26px; font-family:Courier; font-weight:bold;">Search Property:</p>
+      <div  class="col-sm-3">
+        <span class="col-sm-6"> <%= label_tag(:info, "Buy")  %>
+          <%= radio_button_tag(:info, 'For Sale') %>
+        </span>
+        <span class="col-sm-6">
+          <%= label_tag(:info, 'Rent') %>
+          <%= radio_button_tag(:info, 'For Rent') %>
+        </span>
+      </div>
+      <div class="col-sm-6">
+        <span class="col-sm-6">
+          <%= label_tag(:city, 'City') %>
+          <%= text_field_tag(:city) %>
+        </span>
+        <span class="col-sm-6">
+          <%= label_tag(:location, 'Location') %>
+          <%= text_field_tag(:location) %>
+        </span>
+      </div>
+      <div  class="col-sm-3">
+        <%= label_tag(:category) %>
+        <%= select_tag(:category, options_for_select(['Select','Apartment','Hotel','Plot','Bunglow','House','Office'])) %>
+      </div>
     </div>
-<div class="row">
-  <span class="col-sm-6">  <%= label_tag(:max, "Maximum Price") %>
-  <%= number_field_tag(:max) %></span>
 
-  <span class="col-sm-6">  <%= label_tag(:min, "Minimum Price") %>
-  <%= number_field_tag(:min) %></span>
-</div>
+    <div  class="row gap-bottom">
+      <div class="col-sm-2">
+        <%= radio_button_tag(:rooms, 'Studio') %>
+        <%= label_tag(:rooms, 'Studio') %>
+      </div>
+      <div class="col-sm-2">
+        <%= radio_button_tag(:rooms, '1BHK') %>
+        <%= label_tag(:rooms, '1BHK') %>
+      </div>
+      <div class="col-sm-2">
+        <%= radio_button_tag(:rooms, '2BHK') %>
+        <%= label_tag(:rooms, '2BHK') %>
+      </div>
 
-  <%= submit_tag("Search") %>
-<% end %>
+      <div class="col-sm-2">
+        <%= radio_button_tag(:rooms, '3BHK') %>
+        <%= label_tag(:rooms, '3BHK') %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= radio_button_tag(:rooms, '4BHK') %>
+        <%= label_tag(:rooms, '4BHK') %>
+      </div>
+
+      <div class="col-sm-2">
+        <%= radio_button_tag(:rooms, '4BHK+') %>
+        <%= label_tag(:rooms, '4BHK+') %>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="col-sm-6">
+        <%= label_tag(:max, "Maximum Price") %>
+        <%= number_field_tag(:max) %>
+      </span>
+
+      <span class="col-sm-6">
+        <%= label_tag(:min, "Minimum Price") %>
+        <%= number_field_tag(:min) %>
+      </span>
+    </div>
+
+    <%= submit_tag("Search") %>
+  <% end %>
 </div>
 
 
 <div class="row">
   <h1 class="text-center">Recently Added Properties</h1>
-
+  <% unless @properties_recent.empty? %>
     <div>
       <% @properties_recent.each do |prop| %>
-      <span class="thumbnail col-sm-2" style="margin-right:10px;"><% if prop.picture? %>
-         <%= link_to image_tag(prop.picture, style: "display:inline;"), prop %>
-         <% else %>
-         <%= link_to image_tag("no-thumb.jpg", style: "display:inline; height:105px; width:200px;"), prop %>
-         <% end %>
-      <p><%= prop.title %></p>
-</span>
-
+      <span class="thumbnail col-sm-2" style="margin-right:10px;">
+        <% if prop.picture? %>
+          <%= link_to image_tag(prop.picture, style: "display:inline; height:105px; width:200px;"), prop %>
+        <% else %>
+          <%= link_to image_tag("no-thumb.jpg", style: "display:inline; height:105px; width:200px;"), prop %>
+        <% end %>
+        <p><%= prop.title %></p>
+      </span>
       <% end %>
     </div>
-
-
-
+  <% else %>
+    <p class="text-center">Yet No any Properties Added</p>
+  <% end %>
 </div>
 
 
@@ -80,6 +107,8 @@
   </div>
   <div class="col-md-6" style="">
     <p class="col-sm-6" style="color:brown; font-size:28px; ">Property Count:</p>
-    <div class="col-sm-6" style=" font-size:64px;width: 250px; height: 250px; background: red; border-radius: 50%; "><p style="position:relative; left:90px;top:65px;"><%= Property.count %></p></div>
+    <div class="col-sm-6" style=" font-size:64px;width: 250px; height: 250px; background: red; border-radius: 50%; ">
+      <p style="position:relative; left:90px;top:65px;"><%= Property.count %></p>
+    </div>
   </div>
 </div>

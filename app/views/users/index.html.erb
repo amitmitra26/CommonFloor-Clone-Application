@@ -3,19 +3,16 @@
 <h1>All users</h1>
 
 <table class="users table">
-
-<% @users.each do |u| %>
-<tr>
-
-
-<td><%= link_to u.name, admin_user_path(current_user,u), class: "btn btn-lg-primary", style: "background-color:yellow; border:1px solid brown; color:brown;" %> </td>
-  <% unless u.is_admin %>
-<td>  <%= link_to "delete", u, method: :delete,
-                              data: { confirm: "You sure?" }, class: "btn btn-lg-primary", style: "background-color:pink; border:1px solid blue; color:blue;" %></td>
-<td> <%= link_to "Modify", edit_user_path(u), class: "btn btn-lg-primary", style: "background-color:white; border:1px solid black; color:black;" %></td>
-<% else %>
-<th>Unauthorized</th>  <th>Unauthorized</th>
-  <% end %>
-  </tr>
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= link_to u.name, admin_user_path(current_user,u), class: "btn btn-lg-primary", style: "background-color:yellow; border:1px solid brown; color:brown;" %> </td>
+      <% unless u.is_admin %>
+        <td><%= link_to "delete", u, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-lg-primary", style: "background-color:pink; border:1px solid blue; color:blue;" %></td>
+        <td> <%= link_to "Modify", edit_user_path(u), class: "btn btn-lg-primary", style: "background-color:white; border:1px solid black; color:black;" %></td>
+      <% else %>
+        <th>Unauthorized</th>
+        <th>Unauthorized</th>
+      <% end %>
+    </tr>
   <% end %>
 </table>
