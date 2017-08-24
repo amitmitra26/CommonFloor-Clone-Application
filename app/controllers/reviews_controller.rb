@@ -78,9 +78,9 @@ private
       if current_user != @review.user
         flash[:danger] = "You are Not Authorize to this Review Operations"
         redirect_to root_path
-      else
-        @review = Review.find(params[:review_id])
       end
+    else
+      @review = Review.find(params[:review_id])
     end
   end
 
