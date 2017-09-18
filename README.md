@@ -5,9 +5,6 @@ Rails Basic and Advanced Project:
 You need to create a working, demonstrable and usable project using the Rails 5 framework.The project source code can live on Github and be deployed to Heroku (optional).
 You need to use Bootstrap framework for styling the views and pages.
 
-You should maintain our coding convention which is specified in that link https://github.com/kreeti/
-
-
 
  CommonFloor Clone - Requirement specifications:  
 
