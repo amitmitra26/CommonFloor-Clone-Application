@@ -1,15 +1,5 @@
 # README
 
-Rails Basic and Advanced Project:
-
-You need to create a working, demonstrable and usable project using the Rails 5 framework.The project source code can live on Github and be deployed to Heroku (optional).
-You need to use Bootstrap framework for styling the views and pages.
-
-
- CommonFloor Clone - Requirement specifications:  
-
-
-
 
 
 User Access Control:
