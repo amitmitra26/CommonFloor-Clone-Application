@@ -9,7 +9,7 @@ You need to use Bootstrap framework for styling the views and pages.
  CommonFloor Clone - Requirement specifications:  
 
 
-A web application for property classifieds needs to be build similar to the https://www.commonfloor.com/ where the real estate properties can be shown for buying, renting and selling.
+
 
 
 User Access Control:
